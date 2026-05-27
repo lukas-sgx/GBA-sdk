@@ -5,7 +5,7 @@
   env.GREET = "devenv";
 
   # https://devenv.sh/packages/
-  packages = [ pkgs.git ];
+  packages = [ pkgs.git pkgs.libxkbcommon pkgs.vulkan-loader pkgs.wayland ];
   
   languages.python = {
     enable = true;
@@ -31,7 +31,7 @@
 
   # https://devenv.sh/basics/
   enterShell = ''
-
+    export LD_LIBRARY_PATH=${pkgs.vulkan-loader}/lib:${pkgs.wayland}/lib:${pkgs.libxkbcommon}/lib:$LD_LIBRARY_PATH
     git --version # Use packages
   '';
 

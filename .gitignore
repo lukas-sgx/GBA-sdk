@@ -8,3 +8,7 @@ devenv.local.yaml
 
 # pre-commit
 .pre-commit-config.yaml
+
+__pycache__
+
+*.gba
