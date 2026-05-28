@@ -13,10 +13,18 @@ def debug(raw):
     for add in address:
         click.echo(f"{add:08x}")
 
+def is_valid_entry(entry):
+    cond = (entry >> 28) & 0xF
+    family = (entry >> 25) & 0x7
+    return cond == 0xE and family == 0b101
+
 def check_header(gba_file):
     with open(gba_file, 'rb') as fd:
         click.echo(f"{gba_file}:")
 
         raw = fd.read()
+        addresses = get_address(raw)
         click.echo("|-- entry")
-        debug(raw)
+        click.echo(f"|   |-- valid: {is_valid_entry(addresses[0])}")
+        click.echo(f"|   |-- raw: 0x{addresses[0]:08x}")
+        # debug(raw)
