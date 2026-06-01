@@ -64,7 +64,7 @@ def is_valid_nintendo_logo(entry: list[int]):
 
 def is_debugging(entry: int):
     address = list(entry.to_bytes(4))
-    is_debug = (address[3] & 0x84) == 0x84
+    is_debug = (address[3] & 0b10000001) == 0b10000001
     
     return is_debug
 
