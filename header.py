@@ -1,5 +1,6 @@
-import struct
 import click
+
+BYTE_LEN = 4
 
 def get_address(raw):
     address = []
@@ -32,7 +33,7 @@ def is_valid_entry(entry):
     family = (entry >> 25) & 0x7
     return cond == 0xE and family == 0b101
 
-def is_valid_nintendo_logo(entry):
+def is_valid_nintendo_logo(entry: list[int]):
     NINTENDO_LOGO = bytes([
         0x24, 0xFF, 0xAE, 0x51, 0x69, 0x9A, 0xA2, 0x21,
         0x3D, 0x84, 0x82, 0x0A, 0x84, 0xE4, 0x09, 0xAD,
@@ -55,9 +56,17 @@ def is_valid_nintendo_logo(entry):
         0xD6, 0x25, 0xE4, 0x8B, 0x38, 0x0A, 0xAC, 0x72,
         0x21, 0xD4, 0xF8, 0x07,
     ])
-    raw_bytes = b''.join(struct.pack('<I', hex) for hex in entry)
-        
+    raw_bytes = b''
+    for hex in entry:
+        raw_bytes += hex.to_bytes(4, byteorder="little")
+
     return raw_bytes == NINTENDO_LOGO
+
+def is_debugging(entry: int):
+    address = list(entry.to_bytes(4))
+    is_debug = (address[3] & 0x84) == 0x84
+    
+    return is_debug
 
 def check_header(gba_file):
     with open(gba_file, "rb") as fd:
@@ -70,8 +79,9 @@ def check_header(gba_file):
         click.echo(f"|   |-- valid: {is_valid_entry(addresses[0])}")
         click.echo(f"|   |-- raw: 0x{addresses[0]:08x}")
         click.echo(f"|   `-- opcode: {get_opcode(addresses[0], pc)}")
-        pc += 1
+        pc += 1 * BYTE_LEN
         click.echo("|-- nintendo logo:")
         click.echo(f"|   |-- status: {is_valid_nintendo_logo(addresses[1:40])}")
-        pc += 39
+        pc += 156 / BYTE_LEN
+        click.echo(f"|   `-- debugging: {is_debugging(addresses[39])}")
         # debug(raw)
