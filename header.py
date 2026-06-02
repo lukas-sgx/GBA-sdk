@@ -7,7 +7,7 @@ BYTE_LEN = 4
 #     for add in address:
 #         click.echo(f"{add:08x}")
 
-def get_address(raw):
+def get_address(raw) -> list[int]:
     address = []
     for i in range(0, len(raw), 4):
         chunk = raw[i : i + 4]
@@ -16,7 +16,7 @@ def get_address(raw):
     return address
 
 
-def get_opcode(entry, PC):
+def get_opcode(entry, PC) -> str:
     family = (entry >> 25) & 0x7
     instruction = str()
     if family == 0b101:
@@ -28,12 +28,12 @@ def get_opcode(entry, PC):
     return f"{instruction} 0x{target:02x}"
 
 
-def is_valid_entry(entry):
+def is_valid_entry(entry) -> bool:
     cond = (entry >> 28) & 0xF
     family = (entry >> 25) & 0x7
     return cond == 0xE and family == 0b101
 
-def is_valid_nintendo_logo(entry: list[int]):
+def is_valid_nintendo_logo(entry: list[int]) -> bool:
     NINTENDO_LOGO = bytes([
         0x24, 0xFF, 0xAE, 0x51, 0x69, 0x9A, 0xA2, 0x21,
         0x3D, 0x84, 0x82, 0x0A, 0x84, 0xE4, 0x09, 0xAD,
@@ -62,13 +62,13 @@ def is_valid_nintendo_logo(entry: list[int]):
 
     return raw_bytes == NINTENDO_LOGO
 
-def is_debugging(entry: int):
+def is_debugging(entry: int) -> bool:
     address = list(entry.to_bytes(4))
     is_debug = (address[3] & 0b00100001) == 0b00100001
     
     return is_debug
 
-def get_game_title(entry: list[int]):
+def get_game_title(entry: list[int]) -> str:
     listByte = b""
     for addr in entry:
         listByte += addr.to_bytes(4, byteorder="little")
