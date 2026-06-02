@@ -75,22 +75,27 @@ def get_game_title(entry: list[int]):
     result: str = str(listByte.decode(encoding="UTF-8"))
     return result
 
+def get_code(entry):
+    pass
+
 def check_header(gba_file):
     with open(gba_file, "rb") as fd:
         click.echo(f"{gba_file}:")
 
         raw = fd.read()
         addresses = get_address(raw)
-        pc = 0
+        pc: int = 0
         click.echo("|-- entry")
-        click.echo(f"|   |-- valid: {is_valid_entry(addresses[0])}")
-        click.echo(f"|   |-- raw: 0x{addresses[0]:08x}")
-        click.echo(f"|   `-- opcode: {get_opcode(addresses[0], pc)}")
-        pc += 1 * BYTE_LEN
+        click.echo(f"|   |-- valid: {is_valid_entry(addresses[pc])}")
+        click.echo(f"|   |-- raw: 0x{addresses[pc]:08x}")
+        click.echo(f"|   `-- opcode: {get_opcode(addresses[pc], pc)}")
+        pc += int(BYTE_LEN / BYTE_LEN)
         click.echo("|-- nintendo logo:")
-        click.echo(f"|   |-- status: {is_valid_nintendo_logo(addresses[1:40])}")
-        pc += 156 / BYTE_LEN
-        click.echo(f"|   `-- debugging: {is_debugging(addresses[39])}")
-        click.echo(f"|-- game title: {str(get_game_title(addresses[40:43]))}")
-        pc += 12 / BYTE_LEN
+        click.echo(f"|   |-- status: {is_valid_nintendo_logo(addresses[pc:pc + int(156 / BYTE_LEN)])}")
+        pc += int(156 / BYTE_LEN)
+        click.echo(f"|   `-- debugging: {is_debugging(addresses[pc - 1])}")
+        click.echo(f"|-- game title: {get_game_title(addresses[pc:pc + 3])}")
+        pc += int(12 / BYTE_LEN)
+        click.echo("|-- game code:")
+        click.echo(f"|   |-- code: {get_code(addresses[pc + 1])}")
         # debug(raw)
