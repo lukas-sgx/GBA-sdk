@@ -86,7 +86,24 @@ def get_date(entry: int) -> str:
     if code[0] == "B":
         return "2003.. (new)"
     return ""
-    
+
+def get_language(entry: int) -> str:
+    code = get_code(entry)
+    if code[3] == "E":
+        return "USA/English"
+    if code[3] == "J":
+        return "Japan"
+    if code[3] == "P":
+        return "Europe/Elsewhere"
+    if code[3] == "D":
+        return "German"
+    if code[3] == "F":
+        return "French"
+    if code[3] == "I":
+        return "Italian"
+    if code[3] == "S":
+        return "Spanish"
+    return ""
 
 def check_header(gba_file):
     with open(gba_file, "rb") as fd:
@@ -109,4 +126,5 @@ def check_header(gba_file):
         click.echo("|-- game code:")
         click.echo(f"|   |-- code: {get_code(addresses[pc])}")
         click.echo(f"|   |-- date: {get_date(addresses[pc])}")
+        click.echo(f"|   `-- language: {get_language(addresses[pc])}")
         pc += int(BYTE_LEN / BYTE_LEN)
