@@ -2,6 +2,11 @@ import click
 
 BYTE_LEN = 4
 
+# def debug(raw):
+#     address = get_address(raw)
+#     for add in address:
+#         click.echo(f"{add:08x}")
+
 def get_address(raw):
     address = []
     for i in range(0, len(raw), 4):
@@ -21,11 +26,6 @@ def get_opcode(entry, PC):
         offset |= 0xFF0000000
     target = PC + 8 + (offset << 2)
     return f"{instruction} 0x{target:02x}"
-
-def debug(raw):
-    address = get_address(raw)
-    for add in address:
-        click.echo(f"{add:08x}")
 
 
 def is_valid_entry(entry):
@@ -75,10 +75,18 @@ def get_game_title(entry: list[int]):
     result: str = str(listByte.decode(encoding="UTF-8"))
     return result
 
-def get_code(entry: int):
+def get_code(entry: int) -> str:
     code = entry.to_bytes(4, byteorder="little")
-    
     return str(code.decode(encoding="UTF-8"))
+
+def get_date(entry: int) -> str:
+    code = get_code(entry)
+    if code[0] == "A":
+        return "2001..2003 (old)"
+    if code[0] == "B":
+        return "2003.. (new)"
+    return ""
+    
 
 def check_header(gba_file):
     with open(gba_file, "rb") as fd:
@@ -100,4 +108,5 @@ def check_header(gba_file):
         pc += int(12 / BYTE_LEN)
         click.echo("|-- game code:")
         click.echo(f"|   |-- code: {get_code(addresses[pc])}")
+        click.echo(f"|   |-- date: {get_date(addresses[pc])}")
         pc += int(BYTE_LEN / BYTE_LEN)
