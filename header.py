@@ -75,8 +75,10 @@ def get_game_title(entry: list[int]):
     result: str = str(listByte.decode(encoding="UTF-8"))
     return result
 
-def get_code(entry):
-    pass
+def get_code(entry: int):
+    code = entry.to_bytes(4, byteorder="little")
+    
+    return str(code.decode(encoding="UTF-8"))
 
 def check_header(gba_file):
     with open(gba_file, "rb") as fd:
@@ -97,5 +99,5 @@ def check_header(gba_file):
         click.echo(f"|-- game title: {get_game_title(addresses[pc:pc + 3])}")
         pc += int(12 / BYTE_LEN)
         click.echo("|-- game code:")
-        click.echo(f"|   |-- code: {get_code(addresses[pc + 1])}")
-        # debug(raw)
+        click.echo(f"|   |-- code: {get_code(addresses[pc])}")
+        pc += int(BYTE_LEN / BYTE_LEN)
