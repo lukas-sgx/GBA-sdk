@@ -105,6 +105,19 @@ def get_language(entry: int) -> str:
         return "Spanish"
     return ""
 
+def get_marker_id(entry: int) -> str:
+    hexa = hex(entry)[4:]
+    n1 = hexa[2:]
+    ascii1 = chr((int(n1[0]) ** 1) * 16 + (int(n1[1]) * 16 ** 0))
+    n2 = hexa[:2]
+    ascii2 = chr((int(n2[0]) ** 1) * 16 + (int(n2[1]) * 16 ** 0))
+    return f"{ascii1}{ascii2}"
+
+def get_developer(entry: int) -> str:
+    if get_marker_id(entry) == "01":
+        return "Nintendo"
+    return ""
+
 def check_header(gba_file):
     with open(gba_file, "rb") as fd:
         click.echo(f"{gba_file}:")
@@ -128,3 +141,6 @@ def check_header(gba_file):
         click.echo(f"|   |-- date: {get_date(addresses[pc])}")
         click.echo(f"|   `-- language: {get_language(addresses[pc])}")
         pc += int(BYTE_LEN / BYTE_LEN)
+        click.echo("|-- marker code:")
+        click.echo(f"|   |-- id: {get_marker_id(addresses[pc])}")
+        click.echo(f"|   `-- developer: {get_developer(addresses[pc])}")
