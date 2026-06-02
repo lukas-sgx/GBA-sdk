@@ -58,7 +58,7 @@ def is_valid_nintendo_logo(entry: list[int]):
     ])
     raw_bytes = b''
     for hex in entry:
-        raw_bytes += hex.to_bytes(4, byteorder="little")
+        raw_bytes += hex.to_bytes(4, byteorder="little") # todo: verif bit 2, 7 on 0x21h if debugging or not
 
     return raw_bytes == NINTENDO_LOGO
 
@@ -67,6 +67,13 @@ def is_debugging(entry: int):
     is_debug = (address[3] & 0b00100001) == 0b00100001
     
     return is_debug
+
+def get_game_title(entry: list[int]):
+    listByte = b""
+    for addr in entry:
+        listByte += addr.to_bytes(4, byteorder="little")
+    result: str = str(listByte.decode(encoding="UTF-8"))
+    return result
 
 def check_header(gba_file):
     with open(gba_file, "rb") as fd:
@@ -84,4 +91,6 @@ def check_header(gba_file):
         click.echo(f"|   |-- status: {is_valid_nintendo_logo(addresses[1:40])}")
         pc += 156 / BYTE_LEN
         click.echo(f"|   `-- debugging: {is_debugging(addresses[39])}")
+        click.echo(f"|-- game title: {str(get_game_title(addresses[40:43]))}")
+        pc += 12 / BYTE_LEN
         # debug(raw)
