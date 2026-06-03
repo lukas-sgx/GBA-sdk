@@ -141,6 +141,11 @@ class Header:
     def get_device_type(self, addr: int):
         return "0" + hex(addr)[2:4]
 
+    def is_valid_reserved_area(self, prev_addr, curr_addr):
+        if (prev_addr << 4) & 0x0 == 0b000000000000 and curr_addr & 0x0 == 0x0:
+            return "valid"
+        return "unvalid"
+
     def display_header(self):
         is_valid_entry = self.is_valid_entry(self.address[self.pc])
         raw_entry = self.address[self.pc]
@@ -162,6 +167,9 @@ class Header:
         unit_code = self.get_unit_code(self.address[self.pc])
         self.pc += int(BYTE_LEN / BYTE_LEN)
         device_type = self.get_device_type(self.address[self.pc])
+        self.pc += int(BYTE_LEN / BYTE_LEN)
+        is_valid_reserved_area = self.is_valid_reserved_area(self.address[self.pc - 1], self.address[self.pc])
+        
         
         click.echo(self.gba_file + ":")
         click.echo("|-- entry")
@@ -182,3 +190,4 @@ class Header:
         click.echo(f"|-- fixed value: {is_valid_fixed} ({valid_fixed}h)")
         click.echo(f"|-- unit code: {unit_code}h")
         click.echo(f"|-- device type: {device_type}h")
+        click.echo(f"|-- reserved: {is_valid_reserved_area}")
