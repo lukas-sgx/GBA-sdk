@@ -58,7 +58,7 @@ def is_valid_nintendo_logo(entry: list[int]) -> bool:
     ])
     raw_bytes = b''
     for hex in entry:
-        raw_bytes += hex.to_bytes(4, byteorder="little") # todo: verif bit 2, 7 on 0x21h if debugging or not
+        raw_bytes += hex.to_bytes(4, byteorder="little") # todo: verif bit 2, 7 on 0x21h if debugging or not -> https://mgba-emu.github.io/gbatek/#gbacartridgeheader
 
     return raw_bytes == NINTENDO_LOGO
 
@@ -118,6 +118,15 @@ def get_developer(entry: int) -> str:
         return "Nintendo"
     return ""
 
+def get_valid_fixed(entry: int) -> str:
+    hexa = hex(entry)[2:4]
+    return hexa
+
+def is_valid_fixed(entry: int) -> str:
+    if get_valid_fixed(entry) == "96":
+        return "valid"
+    return "unvalid"
+
 def check_header(gba_file):
     with open(gba_file, "rb") as fd:
         click.echo(f"{gba_file}:")
@@ -144,3 +153,4 @@ def check_header(gba_file):
         click.echo("|-- marker code:")
         click.echo(f"|   |-- id: {get_marker_id(addresses[pc])}")
         click.echo(f"|   `-- developer: {get_developer(addresses[pc])}")
+        click.echo(f"|-- fixed value: {is_valid_fixed(addresses[pc])} ({get_valid_fixed(addresses[pc])}h)")
