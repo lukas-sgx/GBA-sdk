@@ -127,6 +127,9 @@ def is_valid_fixed(entry: int) -> str:
         return "valid"
     return "unvalid"
 
+def get_unit_code(entry: int) -> str:
+    return "0"+hex(entry)[2:4]
+
 def check_header(gba_file):
     with open(gba_file, "rb") as fd:
         click.echo(f"{gba_file}:")
@@ -154,3 +157,6 @@ def check_header(gba_file):
         click.echo(f"|   |-- id: {get_marker_id(addresses[pc])}")
         click.echo(f"|   `-- developer: {get_developer(addresses[pc])}")
         click.echo(f"|-- fixed value: {is_valid_fixed(addresses[pc])} ({get_valid_fixed(addresses[pc])}h)")
+        pc += int(BYTE_LEN / BYTE_LEN)
+        click.echo(f"|-- unit code: {get_unit_code(addresses[pc])}h")
+        # click.echo(f"|-- device type: {}h")
