@@ -141,13 +141,35 @@ class Header:
     def get_unit_code(self, addr: int) -> str:
         return hex(addr)[8:10]
 
-    def get_device_type(self, addr: int):
+    def get_device_type(self, addr: int) -> str:
         return "0" + hex(addr)[2:4]
     
-    def is_valid_reserved_area(self, prev_addr: int, curr_addr: int):
+    def is_valid_reserved_area(self, prev_addr: int, curr_addr: int) -> str:
         if (prev_addr & 0xFFFFFF) == 0 and (curr_addr & 0xFFFFFFFF) == 0:
             return "valid"
         return "invalid"
+
+    def get_software_version(self, addr: int) -> str:
+        hexa = hex(addr)[2:]
+
+        if len(str(hexa)) <= 6:
+            return "00"
+        return f"{hexa[0:2]}"
+
+    def get_rom_sum(self, addr: int) -> str:
+        hexa = hex(addr)[2:]
+
+        if len(str(hexa)) <= 6:
+            hexa = "00" + hexa
+        return hexa[2:4]
+
+    def calc_sum(self) -> str:
+        chk = 0
+
+        for i in range(0xA0, 0xBD):
+            chk = (chk - self.raw[i]) & 0xFF
+        chk = (chk - 0x19) & 0xFF
+        return f"{chk:02x}"
 
     def display_header(self):
         is_valid_entry = self.is_valid_entry(self.address[self.pc])
@@ -172,6 +194,11 @@ class Header:
         device_type = self.get_device_type(self.address[self.pc])
         self.pc += int(BYTE_LEN / BYTE_LEN)
         is_valid_reserved_area = self.is_valid_reserved_area(self.address[self.pc - 1], self.address[self.pc])
+        self.pc += int(BYTE_LEN / BYTE_LEN)
+        software_version = self.get_software_version(self.address[self.pc])
+        rom_sum = self.get_rom_sum(self.address[self.pc])
+        sum = self.calc_sum()
+        is_valid_sum = rom_sum == sum
         
         
         click.echo(self.gba_file + ":")
@@ -194,3 +221,8 @@ class Header:
         click.echo(f"|-- unit code: {unit_code}h")
         click.echo(f"|-- device type: {device_type}h")
         click.echo(f"|-- reserved: {is_valid_reserved_area}")
+        click.echo(f"|-- software_ver: {software_version}h")
+        click.echo("`-- checksum:")
+        click.echo(f"    |-- valid: {is_valid_sum}")
+        click.echo(f"    |-- rom: {rom_sum}")
+        click.echo(f"    `-- our: {sum}")
