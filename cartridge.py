@@ -1,4 +1,5 @@
 import click
+import os
 from header import Header
 
 @click.group()
@@ -15,8 +16,14 @@ def dump(gba_files):
     for file in gba_files:
         header = Header(file)
         header.display_header()
+
+@click.command()
+def build():
+    command = ["make", "-C", "build"]
+    os.execvp(command[0], command)
     
 cli.add_command(hdr)
+cli.add_command(build)
 hdr.add_command(dump)
 
 def main():

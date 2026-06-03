@@ -4,8 +4,15 @@
   # https://devenv.sh/basics/
   env.GREET = "devenv";
 
+  # nixpkgs.config.allowUnfree = true;
+  
   # https://devenv.sh/packages/
-  packages = [ pkgs.git pkgs.libxkbcommon pkgs.vulkan-loader pkgs.wayland ];
+  packages = [
+    pkgs.libxkbcommon
+    pkgs.vulkan-loader
+    pkgs.wayland
+    pkgs.gcc-arm-embedded-13
+  ];
   
   languages.python = {
     enable = true;
