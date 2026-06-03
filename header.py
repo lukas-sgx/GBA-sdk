@@ -23,9 +23,13 @@ class Header:
         for i in range(0, len(self.raw), 4):
             chunk = self.raw[i : i + 4]
             if len(chunk) == 4:
-                self.address.append(int.from_bytes(chunk, "little"))
+                self.address.append(int.from_bytes(chunk, "big"))
 
-    def get_opcode_branch(self, addr) -> str:
+    def to_little_endian(self, addr: int) -> int:
+        return int.from_bytes(addr.to_bytes(4, "big"), "little")
+
+    def get_opcode_branch(self, addr: int) -> str:
+        addr = self.to_little_endian(addr)
         family = (addr >> 25) & 0x7
         instruction = ""
 
@@ -37,7 +41,8 @@ class Header:
         target = self.pc + (BYTE_LEN * 2) + (offset << 2)
         return f"{instruction} 0x{target:02x}"
     
-    def is_valid_entry(self, addr) -> bool:
+    def is_valid_entry(self, addr: int) -> bool:
+        addr = self.to_little_endian(addr)
         cond = (addr >> 28) & 0xF
         family = (addr >> 25) & 0x7
         return cond == 0xE and family == 0b101
@@ -67,23 +72,23 @@ class Header:
         ])
         raw_bytes = b''
         for hexAddr in addresses:
-            raw_bytes += hexAddr.to_bytes(4, byteorder="little") # todo: verif bit 2, 7 on 0x21h if debugging or not -> https://mgba-emu.github.io/gbatek/#gbacartridgeheader
+            raw_bytes += hexAddr.to_bytes(4, byteorder="big") # todo: verif bit 2, 7 on 0x21h if debugging or not -> https://mgba-emu.github.io/gbatek/#gbacartridgeheader
 
         return raw_bytes == NINTENDO_LOGO
 
     def is_debugging(self, addr: int) -> bool:
         address = list(addr.to_bytes(4))
-        return (address[3] & 0b00100001) == 0b00100001
+        return (address[0] & 0b00100001) == 0b00100001
 
     def get_game_title(self, addresses: list[int]) -> str:
         listByte = b""
         for addr in addresses:
-            listByte += addr.to_bytes(4, byteorder="little")
+            listByte += addr.to_bytes(4, byteorder="big")
         result: str = str(listByte.decode(encoding="UTF-8"))
         return result
     
     def get_code(self, addr: int) -> str:
-        code = addr.to_bytes(4, byteorder="little")
+        code = addr.to_bytes(4, byteorder="big")
         return str(code.decode(encoding="UTF-8"))
 
     def get_date(self, addr: int) -> str:
@@ -113,10 +118,10 @@ class Header:
         return ""
 
     def get_marker_id(self, addr: int) -> str:
-        hexa = hex(addr)[4:]
-        n1 = hexa[2:]
+        hexa = hex(addr)[2:6]
+        n1 = hexa[:2]
         ascii1 = chr((int(n1[0]) ** 1) * 16 + (int(n1[1]) * 16 ** 0))
-        n2 = hexa[:2]
+        n2 = hexa[2:]
         ascii2 = chr((int(n2[0]) ** 1) * 16 + (int(n2[1]) * 16 ** 0))
         return f"{ascii1}{ascii2}"
 
@@ -126,29 +131,27 @@ class Header:
         return ""
 
     def get_valid_fixed(self, addr: int) -> str:
-        return hex(addr)[2:4]
+        return hex(addr)[6:8]
 
     def is_valid_fixed(self, addr: int) -> str:
         if self.get_valid_fixed(addr) == "96":
             return "valid"
-        return "unvalid"
+        return "invalid"
 
     def get_unit_code(self, addr: int) -> str:
-        if int(hex(addr)[2:]) / 1000000 < 1:
-            return "00"
-        return "0" + hex(addr)[2:4]
+        return hex(addr)[8:10]
 
     def get_device_type(self, addr: int):
         return "0" + hex(addr)[2:4]
-
-    def is_valid_reserved_area(self, prev_addr, curr_addr):
-        if (prev_addr << 4) & 0x0 == 0b000000000000 and curr_addr & 0x0 == 0x0:
+    
+    def is_valid_reserved_area(self, prev_addr: int, curr_addr: int):
+        if (prev_addr & 0xFFFFFF) == 0 and (curr_addr & 0xFFFFFFFF) == 0:
             return "valid"
-        return "unvalid"
+        return "invalid"
 
     def display_header(self):
         is_valid_entry = self.is_valid_entry(self.address[self.pc])
-        raw_entry = self.address[self.pc]
+        raw_entry = self.to_little_endian(self.address[self.pc])
         op_code_entry = self.get_opcode_branch(self.address[self.pc])
         self.pc += int(BYTE_LEN / BYTE_LEN)
         is_valid_nintendo_logo = self.is_valid_nintendo_logo(self.address[self.pc:self.pc + int(LOGO_BYTE_LEN / BYTE_LEN)])
