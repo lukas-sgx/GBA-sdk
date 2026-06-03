@@ -134,8 +134,12 @@ class Header:
         return "unvalid"
 
     def get_unit_code(self, addr: int) -> str:
+        if int(hex(addr)[2:]) / 1000000 < 1:
+            return "00"
         return "0" + hex(addr)[2:4]
 
+    def get_device_type(self, addr: int):
+        return "0" + hex(addr)[2:4]
 
     def display_header(self):
         is_valid_entry = self.is_valid_entry(self.address[self.pc])
@@ -155,8 +159,9 @@ class Header:
         developer = self.get_developer(self.address[self.pc])
         is_valid_fixed = self.is_valid_fixed(self.address[self.pc])
         valid_fixed = self.get_valid_fixed(self.address[self.pc])
-        self.pc += int(BYTE_LEN / BYTE_LEN)
         unit_code = self.get_unit_code(self.address[self.pc])
+        self.pc += int(BYTE_LEN / BYTE_LEN)
+        device_type = self.get_device_type(self.address[self.pc])
         
         click.echo(self.gba_file + ":")
         click.echo("|-- entry")
@@ -176,3 +181,4 @@ class Header:
         click.echo(f"|   `-- developer: {developer}")
         click.echo(f"|-- fixed value: {is_valid_fixed} ({valid_fixed}h)")
         click.echo(f"|-- unit code: {unit_code}h")
+        click.echo(f"|-- device type: {device_type}h")
