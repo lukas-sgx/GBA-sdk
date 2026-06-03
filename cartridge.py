@@ -1,5 +1,5 @@
 import click
-import header
+from header import Header
 
 @click.group()
 def cli():
@@ -13,7 +13,8 @@ def hdr():
 @click.argument("GBA_FILES", required=False, nargs=-1)
 def dump(gba_files):
     for file in gba_files:
-        header.check_header(file)
+        header = Header(file)
+        header.display_header()
     
 cli.add_command(hdr)
 hdr.add_command(dump)
