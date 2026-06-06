@@ -164,7 +164,7 @@ Lukas Soigneux - lukas.soigneux@epitech.eu
 [issues-shield]: https://img.shields.io/github/issues/lukas-sgx/GBA-sdk.svg?style=for-the-badge
 [issues-url]: https://github.com/lukas-sgx/GBA-sdk/issues
 [license-shield]: https://img.shields.io/github/license/lukas-sgx/GBA-sdk.svg?style=for-the-badge
-[license-url]: https://github.com/lukas-sgx/GBA-sdk/blob/master/LICENSE.txt
+[license-url]: https://github.com/lukas-sgx/GBA-sdk/blob/master/LICENSE
 
 [Python-shield]: https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white
 [Python-url]: https://www.python.org/
