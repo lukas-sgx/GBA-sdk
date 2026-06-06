@@ -1,4 +1,4 @@
-<!-- Improved compatibility of back to top link: See: https://github.com/othneildrew/Best-README-Template/pull/73 -->
+<!-- Improved compatibility of back to top link: See: https://github.com/lukas-sgx/GBA-sdk/pull/73 -->
 <a id="readme-top"></a>
 <!--
 *** Thanks for checking out the Best-README-Template. If you have a suggestion
@@ -30,7 +30,7 @@
 <br />
 <div align="center">
   <a href="https://github.com/lukas-sgx/">
-    <img src="assets/gba-logo.png" alt="Logo" height="125">
+    <img src="assets/gba-logo.png" alt="Logo" height="125" style="border-radius=10px">
   </a>
 
   <h3 align="center">GameBoy Advance - SDK</h3>
@@ -38,10 +38,10 @@
   <p align="center">
       Software Development Kit for developer who want build game for GBA
     <br />
-    <a href="https://github.com/othneildrew/Best-README-Template"><strong>Explore the docs »</strong></a>
+    <a href="https://github.com/lukas-sgx/GBA-sdk"><strong>Explore the docs »</strong></a>
     <br />
     <br />
-    <a href="https://github.com/othneildrew/Best-README-Template">View Demo</a>
+    <a href="https://github.com/lukas-sgx/GBA-sdk">View Demo</a>
     &middot;
     <a href="https://github.com/lukas-sgx/GBA-sdk/issues/new?labels=bug&template=bug-report---.md">Report Bug</a>
     &middot;
@@ -179,7 +179,7 @@ _For more examples, please refer to the [Documentation](https://example.com)_
     - [ ] Chinese
     - [ ] Spanish
 
-See the [open issues](https://github.com/othneildrew/Best-README-Template/issues) for a full list of proposed features (and known issues).
+See the [open issues](https://github.com/lukas-sgx/GBA-sdk/issues) for a full list of proposed features (and known issues).
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -201,8 +201,8 @@ Don't forget to give the project a star! Thanks again!
 
 ### Top contributors:
 
-<a href="https://github.com/othneildrew/Best-README-Template/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=othneildrew/Best-README-Template" alt="contrib.rocks image" />
+<a href="https://github.com/lukas-sgx/GBA-sdk/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=lukas-sgx/GBA-sdk" alt="contrib.rocks image" />
 </a>
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
@@ -249,16 +249,16 @@ Use this space to list resources you find helpful and would like to give credit 
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
-[contributors-shield]: https://img.shields.io/github/contributors/othneildrew/Best-README-Template.svg?style=for-the-badge
-[contributors-url]: https://github.com/othneildrew/Best-README-Template/graphs/contributors
-[forks-shield]: https://img.shields.io/github/forks/othneildrew/Best-README-Template.svg?style=for-the-badge
-[forks-url]: https://github.com/othneildrew/Best-README-Template/network/members
-[stars-shield]: https://img.shields.io/github/stars/othneildrew/Best-README-Template.svg?style=for-the-badge
-[stars-url]: https://github.com/othneildrew/Best-README-Template/stargazers
-[issues-shield]: https://img.shields.io/github/issues/othneildrew/Best-README-Template.svg?style=for-the-badge
-[issues-url]: https://github.com/othneildrew/Best-README-Template/issues
-[license-shield]: https://img.shields.io/github/license/othneildrew/Best-README-Template.svg?style=for-the-badge
-[license-url]: https://github.com/othneildrew/Best-README-Template/blob/master/LICENSE.txt
+[contributors-shield]: https://img.shields.io/github/contributors/lukas-sgx/GBA-sdk.svg?style=for-the-badge
+[contributors-url]: https://github.com/lukas-sgx/GBA-sdk/graphs/contributors
+[forks-shield]: https://img.shields.io/github/forks/lukas-sgx/GBA-sdk.svg?style=for-the-badge
+[forks-url]: https://github.com/lukas-sgx/GBA-sdk/network/members
+[stars-shield]: https://img.shields.io/github/stars/lukas-sgx/GBA-sdk.svg?style=for-the-badge
+[stars-url]: https://github.com/lukas-sgx/GBA-sdk/stargazers
+[issues-shield]: https://img.shields.io/github/issues/lukas-sgx/GBA-sdk.svg?style=for-the-badge
+[issues-url]: https://github.com/lukas-sgx/GBA-sdk/issues
+[license-shield]: https://img.shields.io/github/license/lukas-sgx/GBA-sdk.svg?style=for-the-badge
+[license-url]: https://github.com/lukas-sgx/GBA-sdk/blob/master/LICENSE.txt
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: https://linkedin.com/in/othneildrew
 [product-screenshot]: images/screenshot.png
