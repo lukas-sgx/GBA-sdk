@@ -57,7 +57,7 @@ This SDK aims to simplify GameBoy Advance homebrew development by allowing devel
 
 ### Built With
 
-* [![Python][Python-shield]][Python-url]
+[![Python][Python-shield]][Python-url]
 
 ## Getting Started
 
