@@ -10,7 +10,7 @@ def build(source: tuple, output: click.File):
     name = output.name.split(".")[0]
 
     os.makedirs("bin", exist_ok=True)
-    
+
     click.echo(f"[CC]  {' '.join(source)}")
     command = [
         "arm-none-eabi-gcc",
@@ -31,5 +31,5 @@ def build(source: tuple, output: click.File):
     ]
     subprocess.run(command, check=True)
 
-    with open(f"bin/{name}.bin", "rb") as bin_file:
-        generation = Generation(bin_file, output, "filename")
+    Generation(f"./bin/{name}.bin", output, "filename", "BXXE")
+        
