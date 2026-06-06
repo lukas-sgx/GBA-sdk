@@ -2,9 +2,12 @@ name: Cartridge App
 
 on:
   push:
-    branches: [ "main" ]
+    branches-ignore:
+      - "no-ga/**"
   pull_request:
-    branches: [ "main" ]
+    branches-ignore:
+      - "no-ga/**"
+
 
 permissions:
   contents: read
@@ -50,3 +53,36 @@ jobs:
     # - name: Test with pytest
     #   run: |
     #     pytest
+
+  open_pull_request:
+      if: github.ref == 'refs/heads/dev' && github.event_name == 'push'
+      needs:
+        - functional_test
+      runs-on: ubuntu-latest
+      permissions:
+        pull-requests: write
+        contents: read
+      steps:
+        - uses: actions/checkout@v6
+          with:
+            fetch-depth: 0
+  
+        - name: Get body content
+          id: pr_body
+          run: |
+            echo "COMMITS_LIST<<EOF" >> $GITHUB_ENV
+            echo "### List of changements: " >> $GITHUB_ENV
+            git log origin/main..HEAD --oneline --pretty=format:"- %s (%h)" >> $GITHUB_ENV
+            echo "" >> $GITHUB_ENV
+            echo "EOF" >> $GITHUB_ENV
+  
+        - name: Create PR dev -> main
+          run: |
+            gh pr create \
+              --title "merge: ${{ github.ref_name }} -> main" \
+              --body "$COMMITS_LIST" \
+              --base main \
+              --head dev || echo "PR already exists or could not be created"
+          env:
+            GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+

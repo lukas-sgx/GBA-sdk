@@ -6,5 +6,5 @@ from cartridge.services.generation import Generation
 @click.option("-o", "--output", required=True, nargs=1, type=click.File("wb"), help="output filename")
 @click.option("-n", "--name", nargs=1, type=click.STRING, help="internal cartridge name", show_default=True, default="filename")
 def gen(binary: click.File, output: click.File, name: str):
-    generation = Generation(binary, output, name)
+    Generation(binary.name, output, name, "BXXE")
     
