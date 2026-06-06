@@ -18,7 +18,7 @@ def build(source: tuple, output: click.File):
         "-nostdlib",
         "-o", f"build/{name}.elf",
         *source,
-        "-T", "./build/example/gba.ld"
+        "-T", "./build/linker/gba.ld"
     ]
     subprocess.run(command, check=True)
 
