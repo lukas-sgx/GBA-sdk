@@ -16,10 +16,7 @@
   
   languages.python = {
     enable = true;
-    venv = {
-      enable = true;
-      requirements = ./requirements.txt;
-    };
+    venv.enable = true;
   };
 
   # https://devenv.sh/languages/
@@ -32,15 +29,19 @@
   # services.postgres.enable = true;
 
   # https://devenv.sh/scripts/
-  scripts.hello.exec = ''
-    echo hello from $GREET
-  '';
+  # 
 
   # https://devenv.sh/basics/
   enterShell = ''
-    export LD_LIBRARY_PATH=${pkgs.vulkan-loader}/lib:${pkgs.wayland}/lib:${pkgs.libxkbcommon}/lib:$LD_LIBRARY_PATH
+    pip install -e "." --quiet
     git --version # Use packages
   '';
+  
+  env.LD_LIBRARY_PATH = pkgs.lib.makeLibraryPath [
+    pkgs.vulkan-loader
+    pkgs.wayland
+    pkgs.libxkbcommon
+  ];
 
   # https://devenv.sh/tasks/
   # tasks = {

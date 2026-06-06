@@ -1,0 +1,27 @@
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "cartridge"
+description = "GBA SDK — build tool for Game Boy Advance"
+
+dynamic = ["version"]
+dependencies = [
+    "click"
+]
+
+authors = [
+  {name = "Lukas Soigneux", email = "lukas.soigneux@epitech.eu"},
+]
+
+readme = "README.md"
+license = "MIT"
+license-files = ["LICENSE"]
+keywords = ["GBA", "Game Boy", "GameBoy Advance"]
+
+[tool.setuptools.packages.find]
+include = ["cartridge*"]
+
+[project.scripts]
+cartridge = "cartridge.cli:main"
