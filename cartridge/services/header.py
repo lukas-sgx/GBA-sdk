@@ -77,7 +77,7 @@ class Header:
         return raw_bytes == NINTENDO_LOGO
 
     def is_debugging(self, addr: int) -> bool:
-        address = list(addr.to_bytes(4))
+        address = list(addr.to_bytes(4, byteorder="big"))
         return (address[0] & 0b00100001) == 0b00100001
 
     def get_game_title(self, addresses: list[int]) -> str:
