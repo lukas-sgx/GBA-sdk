@@ -1,8 +1,8 @@
 import click
 import os
 import subprocess
-from header import Header
-from generation import Generation
+from modules.header import Header
+from modules.generation import Generation
 
 @click.group(help="Cartridge SDK CLI entry")
 def cli():
@@ -20,8 +20,7 @@ def dump(gba_files):
         header.display_header()
 
 def _gen(binary, output, name):
-    # generation = Generation(binary, output, name)
-    pass
+    generation = Generation(binary, output, name)
         
 @click.command(help="craft cartridge ROM (GBA)")
 @click.option("-s", "--source", required=True, type=click.STRING, multiple=True, help="input source(s) file(s)")
@@ -31,7 +30,7 @@ def build(source: tuple, output: click.File):
 
     os.makedirs("bin", exist_ok=True)
     
-    click.echo(f"[CC] ARM7TDMI source(s) file(s): {' '.join(source)}")
+    click.echo(f"[CC]  {' '.join(source)}")
     command = [
         "arm-none-eabi-gcc",
         "-mcpu=arm7tdmi", "-mlittle-endian",
@@ -42,7 +41,7 @@ def build(source: tuple, output: click.File):
     ]
     subprocess.run(command, check=True)
 
-    click.echo(f"[BIN] extract {name}.elf -> {name}.bin")
+    click.echo(f"[BIN] {name}.elf -> {name}.bin")
     command = [
         "arm-none-eabi-objcopy",
         "-O", "binary",
