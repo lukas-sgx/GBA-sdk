@@ -83,7 +83,7 @@ You need Python 3.x installed on your system
 
 ## Usage
 
-Here is a quick example of how to check if header is valid:
+Here is a quick example of how to dump header of ROM:
 ```sh
 cartridge hdr dump Super_Mario_Advance.gba
 Super_Mario_Advance.gba:
