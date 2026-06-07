@@ -46,7 +46,7 @@ jobs:
     - name: Install dependencies
       run: |
         python3 -m venv venv
-        source venv/bin/activate
+        source venv/bin/activate --copies
         pip install -e "."
 
     - name: Tests
