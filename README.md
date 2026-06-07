@@ -119,7 +119,7 @@ Super_Mario_Advance.gba:
 ## Roadmap
 
 - [x] Automated header checker `.gba` ROM
-- [ ] Automated compilation to `.gba` ROM
+- [x] Automated compilation to `.gba` ROM
 - [ ] Core GBA bindings (Video, Audio, Inputs)
 - [ ] Asset pipeline (PNG to GBA sprite palette converter)
 
