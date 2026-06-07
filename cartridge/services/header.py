@@ -84,7 +84,7 @@ class Header:
         listByte = b""
         for addr in addresses:
             listByte += addr.to_bytes(4, byteorder="big")
-        result: str = str(listByte.decode(encoding="UTF-8"))
+        result: str = str(listByte.decode(encoding="UTF-8")).rstrip("\x00")
         return result
     
     def get_code(self, addr: int) -> str:

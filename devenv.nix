@@ -21,6 +21,7 @@
   '';
   
   env.LD_LIBRARY_PATH = pkgs.lib.makeLibraryPath [
+    pkgs.libxkbcommon
     pkgs.vulkan-loader
     pkgs.wayland
     pkgs.libxkbcommon
