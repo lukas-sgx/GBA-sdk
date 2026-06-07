@@ -74,7 +74,7 @@ class Generation:
             header = self.header_fill(game_title=self.name, game_code=self.game_code)
             rom_data = bin_content.read()
             
-            self.output.write(header + rom_data[0xC0:])
+            self.output.write(header + rom_data)
 
         
         click.echo("[OK]  GBA succefully build")
