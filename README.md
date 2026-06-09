@@ -1,10 +1,3 @@
-[![Contributors][contributors-shield]][contributors-url]
-[![Forks][forks-shield]][forks-url]
-[![Stargazers][stars-shield]][stars-url]
-[![Issues][issues-shield]][issues-url]
-[![MIT License][license-shield]][license-url]
-
-<br />
 <div align="center">
   <a href="https://github.com/lukas-sgx/">
     <img src="assets/gba-logo.png" alt="Logo" height="125" style="border-radius: 10px">
@@ -154,17 +147,6 @@ Lukas Soigneux - lukas.soigneux@epitech.eu
 
 * [GBATEK](https://mgba-emu.github.io/gbatek/) - GameBoy Advance Technical Info
 * [Ayyboy-Advance](https://github.com/YannMagnin/ayyboy-advance) - Great emulator for testing
-
-[contributors-shield]: https://img.shields.io/github/contributors/lukas-sgx/GBA-sdk.svg?style=for-the-badge
-[contributors-url]: https://github.com/lukas-sgx/GBA-sdk/graphs/contributors
-[forks-shield]: https://img.shields.io/github/forks/lukas-sgx/GBA-sdk.svg?style=for-the-badge
-[forks-url]: https://github.com/lukas-sgx/GBA-sdk/network/members
-[stars-shield]: https://img.shields.io/github/stars/lukas-sgx/GBA-sdk.svg?style=for-the-badge
-[stars-url]: https://github.com/lukas-sgx/GBA-sdk/stargazers
-[issues-shield]: https://img.shields.io/github/issues/lukas-sgx/GBA-sdk.svg?style=for-the-badge
-[issues-url]: https://github.com/lukas-sgx/GBA-sdk/issues
-[license-shield]: https://img.shields.io/github/license/lukas-sgx/GBA-sdk.svg?style=for-the-badge
-[license-url]: https://github.com/lukas-sgx/GBA-sdk/blob/main/LICENSE
 
 [Python-shield]: https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white
 [Python-url]: https://www.python.org/
