@@ -12,6 +12,7 @@ jobs:
       contents: write
       pull-requests: write
       id-token: write
+      issues: write
 
     steps:
       - uses: googleapis/release-please-action@v4
