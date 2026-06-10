@@ -82,7 +82,7 @@ jobs:
           run: |
             BACKLINE=$'\n'
             COMMITS_LIST="### List of changements:${BACKLINE}"
-            COMMITS_LIST += "$(git log origin/main..HEAD --oneline --pretty=format:"- %s (%h)")"
+            COMMITS_LIST+="$(git log origin/main..HEAD --oneline --pretty=format:"- %s (%h)")"
 
             gh pr create \
             --title "merge: ${{ github.ref_name }} -> main" \
