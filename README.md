@@ -1,6 +1,6 @@
 <div align="center">
   <a href="https://github.com/lukas-sgx/">
-    <img src="assets/gba-logo.png" alt="Logo" height="125" style="border-radius: 10px">
+    <img src="assets/gba-logo.png" alt="Logo" height="180" style="border-radius: 10px">
   </a>
 
   <h3 align="center">GameBoy Advance - SDK</h3>
