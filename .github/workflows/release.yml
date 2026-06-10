@@ -43,6 +43,7 @@ jobs:
             GH_TOKEN: ${{ github.token }}
         run: |
           gh release upload ${{ steps.release.outputs.tag_name }} dist/*
+
       - name: Publish to PyPI
         if: ${{ steps.release.outputs.release_created }}
         uses: pypa/gh-action-pypi-publish@release/v1
