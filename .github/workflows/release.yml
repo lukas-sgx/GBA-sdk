@@ -1,14 +1,11 @@
 name: Release Stable
 
 on:
-  workflow_run:
-    workflows: ["Cartridge App"]
-    types: [completed]
+  push:
     branches: [stable]
 
 jobs:
   release:
-    environment: stable
     runs-on: ubuntu-latest
     if: ${{ github.event.workflow_run.conclusion == 'success' }}
 
