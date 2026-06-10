@@ -8,6 +8,7 @@ on:
 
 jobs:
   release:
+    environment: stable
     runs-on: ubuntu-latest
     if: ${{ github.event.workflow_run.conclusion == 'success' }}
 
@@ -28,6 +29,7 @@ jobs:
         if: ${{ steps.release.outputs.release_created }}
         with:
           fetch-depth: 0
+          ref: stable
 
       - name: Build & publish
         if: ${{ steps.release.outputs.release_created }}
@@ -37,9 +39,11 @@ jobs:
       - name: Upload to GitHub Release
         if: ${{ steps.release.outputs.release_created }}
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.RELEASE_TOKEN }}
         run: |
           gh release upload ${{ steps.release.outputs.tag_name }} dist/*
       - name: Publish to PyPI
         if: ${{ steps.release.outputs.release_created }}
         uses: pypa/gh-action-pypi-publish@release/v1
+        with:
+          packages-dir: dist/
