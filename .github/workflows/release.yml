@@ -1,15 +1,13 @@
 name: Release Stable
-
 on:
   workflow_run:
     workflows: ["Cartridge App"]
     types: [completed]
-    branches: [main]
-
+    branches: [stable]
 permissions:
   contents: write
   pull-requests: write
-
+  id-token: write
 jobs:
   release:
     runs-on: ubuntu-latest
@@ -24,20 +22,18 @@ jobs:
 
       - uses: actions/checkout@v6
         if: ${{ steps.release.outputs.release_created }}
-
+        with:
+          fetch-depth: 0
       - name: Build & publish
         if: ${{ steps.release.outputs.release_created }}
         run: |
-          pip install build
-          python -m build
-
+          pipx run build
       - name: Upload to GitHub Release
         if: ${{ steps.release.outputs.release_created }}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           gh release upload ${{ steps.release.outputs.tag_name }} dist/*
-
       - name: Publish to PyPI
         if: ${{ steps.release.outputs.release_created }}
         uses: pypa/gh-action-pypi-publish@release/v1
