@@ -2,7 +2,7 @@ name: Release Stable
 
 on:
   push:
-    branches: [main]
+    branches: [stable]
 
 jobs:
   release:
