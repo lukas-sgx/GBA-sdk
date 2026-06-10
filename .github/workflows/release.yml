@@ -40,7 +40,7 @@ jobs:
       - name: Upload to GitHub Release
         if: ${{ steps.release.outputs.release_created }}
         env:
-          GITHUB_TOKEN: ${{ secrets.RELEASE_TOKEN }}
+            GH_TOKEN: ${{ github.token }}
         run: |
           gh release upload ${{ steps.release.outputs.tag_name }} dist/*
       - name: Publish to PyPI
