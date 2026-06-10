@@ -5,15 +5,16 @@ on:
     workflows: ["Cartridge App"]
     types: [completed]
     branches: [stable]
-permissions:
-  contents: write
-  pull-requests: write
-  id-token: write
 
 jobs:
   release:
     runs-on: ubuntu-latest
     if: ${{ github.event.workflow_run.conclusion == 'success' }}
+
+    permissions:
+      contents: write
+      pull-requests: write
+      id-token: write
 
     steps:
       - uses: googleapis/release-please-action@v4
