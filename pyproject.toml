@@ -13,7 +13,7 @@ dependencies = [
 
 authors = [
   {name = "Lukas Soigneux", email = "lukas.soigneux@epitech.eu"},
-  {name = "Alessandro Paris"},
+  {name = "Alessandro Paris", email = "alessandro.paris1@epitech.eu"},
 ]
 
 readme = "README.md"
