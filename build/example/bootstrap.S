@@ -1,6 +1,6 @@
 .text
 .global _bootstrap
-.arm
+.arm // force use of arm mode 32bits
 
 // Bootstrap code,
 // @notes
