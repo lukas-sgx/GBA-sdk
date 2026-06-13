@@ -13,6 +13,7 @@
 
 _bootstrap:
     bl disable_irq
+    bl setup_stack
 
 disable_irq:
     mov r0, #0
@@ -20,6 +21,9 @@ disable_irq:
     strh r0, [r1] // set r0 content in r1 in 16 bits
     bx lr // branch exchange: link register -> ret in asm x64
 
+setup_stack:
+    ldr sp, =USER_STACK
+    bx lr    
 
 // ---
 // Data area
@@ -27,3 +31,4 @@ disable_irq:
 .balign 4
 
 .equ IME, 0x04000208 // define IME register address
+.equ USER_STACK, 0x03007F00
