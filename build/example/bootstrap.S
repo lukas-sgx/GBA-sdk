@@ -15,10 +15,10 @@ _bootstrap:
     bl disable_irq
 
 disable_irq:
-    mov r0, #0 // 
-    ldr r1, =IME
-    strh r0, [r1]
-    bx lr
+    mov r0, #0
+    ldr r1, =IME // load register IME on r1
+    strh r0, [r1] // set r0 content in r1 in 16 bits
+    bx lr // branch exchange: link register -> ret in asm x64
 
 
 // ---
