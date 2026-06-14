@@ -14,6 +14,8 @@
 _bootstrap:
     bl disable_irq
     bl setup_stack
+    bl main
+    b security_running
 
 disable_irq:
     mov r0, #0
@@ -23,7 +25,10 @@ disable_irq:
 
 setup_stack:
     ldr sp, =USER_STACK
-    bx lr    
+    bx lr
+
+security_running:
+    b security_running
 
 // ---
 // Data area
