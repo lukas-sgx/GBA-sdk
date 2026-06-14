@@ -7,11 +7,11 @@ ENTRY(_bootstrap)
 * - skip the cartridge header
 * - other memory area will be cover soon .. */
 MEMORY {
-    rom(rx): ORIGIN = 0x080000c0, LENGTH = 32M
+    game_pack(rx): ORIGIN = 0x080000c0, LENGTH = 32M
 }
 /* aggressively keep code binary and force it to be located at the start of the ROM */
 SECTIONS {
     .text : {
         KEEP (*(.text));
-    } > rom
+    } > game_pack
 }
