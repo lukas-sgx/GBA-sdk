@@ -12,6 +12,7 @@ MEMORY {
 /* aggressively keep code binary and force it to be located at the start of the ROM */
 SECTIONS {
     .text : {
-        KEEP (*(.text));
+        KEEP(*(.text._bootstrap))
+		*(.text*)
     } > game_pack
 }

@@ -1,4 +1,4 @@
-.text
+.section .text._bootstrap
 .global _bootstrap
 .arm // force use of arm mode 32bits
 
