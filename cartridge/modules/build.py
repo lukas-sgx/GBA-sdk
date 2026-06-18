@@ -2,7 +2,6 @@ import click
 import subprocess
 import os
 import glob
-from pathlib import Path
 from cartridge.services.generation import Generation
 
 def listBin() -> list[str]:
