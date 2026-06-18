@@ -78,8 +78,7 @@ You need Python 3.x installed on your system
 
 Here is a quick example of how to dump header of ROM:
 ```sh
-cartridge hdr dump Super_Mario_Advance.gba
-Super_Mario_Advance.gba:
+bin/ExampleGBA.gba:
 |-- entry
 |   |-- valid: True
 |   |-- raw: 0xea00002e
@@ -87,10 +86,10 @@ Super_Mario_Advance.gba:
 |-- nintendo logo:
 |   |-- status: True
 |   `-- debugging: True
-|-- game title: SUPER MARIOB
+|-- game title: EXAMPLEGBA
 |-- game code:
-|   |-- code: AA2E
-|   |-- date: 2001..2003 (old)
+|   |-- code: BXXE
+|   |-- date: 2003.. (new)
 |   `-- language: USA/English
 |-- marker code:
 |   |-- id: 01
@@ -102,8 +101,8 @@ Super_Mario_Advance.gba:
 |-- software_ver: 00h
 `-- checksum:
     |-- valid: True
-    |-- rom: 8e
-    `-- our: 8e
+    |-- rom: e3
+    `-- our: e3
 ```
 
 *For more advanced examples, please refer to the [Documentation](https://github.com/lukas-sgx/GBA-sdk).*
