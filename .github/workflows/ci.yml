@@ -49,7 +49,9 @@ jobs:
         pip install -e "."
 
     - name: Tests
-      run: ./tests/tester.sh
+      run: |
+        source /venv/bin/activate
+        ./tests/tester.sh
       timeout-minutes: 2
 
     # - name: Test with pytest
