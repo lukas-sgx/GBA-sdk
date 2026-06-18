@@ -1,5 +1,6 @@
 import click
 import struct
+from typing import BinaryIO
 
 ROM_ENTRY_POINT: int = 0xEA00002E
 
@@ -28,7 +29,7 @@ NINTENDO_LOGO = bytes([
 
 
 class Generation:
-    def __init__(self, bin_file: str, output: click.File, name: str, game_code: str) -> None:
+    def __init__(self, bin_file: str, output: BinaryIO, name: str, game_code: str) -> None:
         self.bin_file = bin_file
         self.output = output
         self.name = name
