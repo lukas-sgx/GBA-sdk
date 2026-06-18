@@ -1,4 +1,4 @@
-mini.gba:
+bin/ExampleGBA.gba:
 |-- entry
 |   |-- valid: True
 |   |-- raw: 0xea00002e
@@ -6,7 +6,7 @@ mini.gba:
 |-- nintendo logo:
 |   |-- status: True
 |   `-- debugging: True
-|-- game title: FILENAME
+|-- game title: EXAMPLEGBA
 |-- game code:
 |   |-- code: BXXE
 |   |-- date: 2003.. (new)
@@ -21,5 +21,5 @@ mini.gba:
 |-- software_ver: 00h
 `-- checksum:
     |-- valid: True
-    |-- rom: 78
-    `-- our: 78
+    |-- rom: e3
+    `-- our: e3
