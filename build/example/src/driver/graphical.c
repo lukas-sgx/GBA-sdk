@@ -14,12 +14,13 @@ extern void dinit(void)
 
 extern void dpixel(int16_t x, int16_t y, uint16_t color)
 {
+    if (x * y < 240 * 160)
+        return;
     (VRAM_ADDR)[y * 240 + x] = color;
 }
 
 extern void dclear(uint16_t color)
 {
-    for (int16_t x = 0; x < 240; x++)
-        for (int16_t y = 0; y < 160; y++)
-            dpixel(x, y, color);
+    for (int32_t i = 0; i <= 240 * 160; i++)
+        (VRAM_ADDR)[i] = color;
 }
