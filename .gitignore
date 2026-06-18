@@ -22,3 +22,9 @@ result/
 
 # for non NixOs user
 .venv
+
+# Cmake
+*.cmake
+CMakeFiles
+CMakeCache.txt
+Makefile
