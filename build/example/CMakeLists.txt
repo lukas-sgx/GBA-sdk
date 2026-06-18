@@ -7,9 +7,9 @@ set(CMAKE_OBJCOPY "arm-none-eabi-objcopy")
 set(RUNTIME_OUTPUT_DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}/../../bin")
 
 set(SOURCES
-    main.c
-    driver/graphical.c
-    bootstrap.S
+    src/main.c
+    src/driver/graphical.c
+    src/bootstrap.S
 )
 
 add_executable(${PROJECT_NAME} ${SOURCES})
