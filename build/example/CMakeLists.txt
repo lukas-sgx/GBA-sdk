@@ -22,7 +22,7 @@ target_compile_options(${PROJECT_NAME} PRIVATE
 )
 
 target_link_options(${PROJECT_NAME} PRIVATE
-    -T "${CMAKE_CURRENT_SOURCE_DIR}/../linker/gba.ld"
+    -T "${CMAKE_CURRENT_SOURCE_DIR}/linker/gba.ld"
     -nostdlib
 )
 
