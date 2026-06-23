@@ -5,12 +5,14 @@ set(CMAKE_C_COMPILER "arm-none-eabi-gcc")
 set(CMAKE_ASM_COMPILER "arm-none-eabi-gcc")
 set(CMAKE_OBJCOPY "arm-none-eabi-objcopy")
 set(RUNTIME_OUTPUT_DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}/../../bin")
+set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
 set(SOURCES
     src/main.c
     src/driver/graphical.c
     src/bootstrap.S
-)
+    src/font.c
+ )
 
 add_executable(${PROJECT_NAME} ${SOURCES})
 set_target_properties(${PROJECT_NAME} PROPERTIES SUFFIX ".elf")
@@ -19,6 +21,10 @@ target_compile_options(${PROJECT_NAME} PRIVATE
     -mcpu=arm7tdmi
     -mlittle-endian
     -nostdlib
+)
+
+target_include_directories(${PROJECT_NAME} PRIVATE
+    "${CMAKE_CURRENT_SOURCE_DIR}/include"
 )
 
 target_link_options(${PROJECT_NAME} PRIVATE
