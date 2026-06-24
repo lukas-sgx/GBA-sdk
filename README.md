@@ -51,6 +51,9 @@ This SDK aims to simplify GameBoy Advance homebrew development by allowing devel
 ### Built With
 
 [![Python][Python-shield]][Python-url]
+[![C][C-shield]][C-url]
+[![Assembly][ASM-shield]][ASM-url]
+[![CMake][CMake-shield]][CMake-url]
 
 ## Getting Started
 
@@ -149,3 +152,9 @@ Lukas Soigneux - lukas.soigneux@epitech.eu
 
 [Python-shield]: https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white
 [Python-url]: https://www.python.org/
+[C-shield]: https://img.shields.io/badge/C-005895?style=for-the-badge&logo=c&logoColor=white
+[C-url]: https://www.c-language.org/
+[ASM-shield]: https://img.shields.io/badge/-Assembly-f2921d?style=for-the-badge&logo=assemblyscript&logoColor=white
+[ASM-url]: https://developer.arm.com/
+[CMake-shield]: https://img.shields.io/badge/-CMake-064F8C?style=for-the-badge&logo=cmake&logoColor=white
+[CMake-url]: https://cmake.org/
