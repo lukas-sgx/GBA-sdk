@@ -26,8 +26,8 @@ class Conversion:
         content += "\t};\n\n"
 
         content += "\tconst glyph_t glyphs_monospaced[] = {\n\t\t{"
-        content += f".width = {self.width}, .height = {self.height}"
-        content += "},\n\t\tNULL\n"
+        content += f" .width = {self.width}, .height = {self.height} "
+        content += "},\n\t\t{ .width = 0, .height = 0 }\n"
         content += "\t};\n\n"
 
         content += "\tstatic const uint8_t font_bitmap_proportional[] = {\n"

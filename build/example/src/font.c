@@ -104,8 +104,8 @@ void init_font(gba_font_t *font, uint8_t type) {
 	};
 
 	const glyph_t glyphs_monospaced[] = {
-		{.width = 8, .height = 12},
-		NULL
+		{ .width = 8, .height = 12 },
+		{ .width = 0, .height = 0 }
 	};
 
 	static const uint8_t font_bitmap_proportional[] = {
