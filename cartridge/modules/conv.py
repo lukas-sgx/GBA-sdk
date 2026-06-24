@@ -1,6 +1,6 @@
 import click
 from PIL import Image
-from cartridge.services.convertion import Convertion
+from cartridge.services.conversion import Conversion
 
 @click.command(help="Convert a font asset into a raw C file")
 @click.option("-o", "--output", required=True, type=click.Path(exists=False), help="generated C file")
@@ -13,7 +13,7 @@ from cartridge.services.convertion import Convertion
 def conv(asset_path: str, output: str, width: int, height: int, margin: int, line_height: int, debug) -> None:
     img = Image.open(asset_path, mode="r").convert("L")
     dimension = (height, width, line_height, margin)
-    convert = Convertion(img, dimension, debug)
+    convert = Conversion(img, dimension, debug)
 
     with open(output, mode="w") as file:
         file.write(convert.get_content())
