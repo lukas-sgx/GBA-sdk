@@ -9,11 +9,17 @@ typedef struct glyph_s {
     size_t height;
 } glyph_t;
 
+typedef struct gba_font_packed_s {
+    const uint8_t *bitmap;
+    const glyph_t *glyphs;
+} gba_font_packed_t;
+
 typedef struct gba_font_s {
     uint8_t type;
-    const glyph_t *glyphs;
-    const glyph_t *global;
-    const uint8_t *bitmap;
+    union {
+        gba_font_packed_t monospaced;
+        gba_font_packed_t proportional;
+    };
 } gba_font_t;
 
 void init_font(gba_font_t *font, uint8_t type);
