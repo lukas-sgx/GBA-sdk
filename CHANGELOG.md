@@ -1,5 +1,68 @@
 # Changelog
 
+## [1.0.0-alpha.2](https://github.com/lukas-sgx/GBA-sdk/compare/v1.0.0-alpha...v1.0.0-alpha.2) (2026-06-24)
+
+
+* release 1.0.0-alpha.2 ([758a628](https://github.com/lukas-sgx/GBA-sdk/commit/758a628002990b6ad454e4ab4553078fccba3b23))
+
+
+### New APIs / Features
+
+* add cmake ([87fbbbb](https://github.com/lukas-sgx/GBA-sdk/commit/87fbbbb0174d5579ac3f6513ac8dd80c50084643))
+* add color & improve security during build ([f1d9aa3](https://github.com/lukas-sgx/GBA-sdk/commit/f1d9aa319a993b9686dc9ce19f5425796d785ee8))
+* add compile_commands ([c7476c4](https://github.com/lukas-sgx/GBA-sdk/commit/c7476c44c245178b63eb967827b557dbea5e2326))
+* add conv font asset ([7c4e961](https://github.com/lukas-sgx/GBA-sdk/commit/7c4e961e165af04396f740df06afff09a9a8a165))
+* add example auto generated font asset file ([0a55c40](https://github.com/lukas-sgx/GBA-sdk/commit/0a55c40b91b18c0b2778c5dc030d98cd83cd7bc4))
+* add font structure handle ([98b651b](https://github.com/lukas-sgx/GBA-sdk/commit/98b651b044befd3dc6b78dacf20cd28c498a6ee7))
+* add new logo asset ([d34d49b](https://github.com/lukas-sgx/GBA-sdk/commit/d34d49b1443f945d80712e82190b9cefaff7b25f))
+* add object file ([55d4a0b](https://github.com/lukas-sgx/GBA-sdk/commit/55d4a0b2c889f58a480074c8c476a7deee8ffbda))
+* add packed by union fonts ([22ca296](https://github.com/lukas-sgx/GBA-sdk/commit/22ca296dda625b4b81e2d98644cb62f3309af3de))
+* **ci:** setup venv on running tests ([2c3d2db](https://github.com/lukas-sgx/GBA-sdk/commit/2c3d2dbd7ba16e5e7d36c35c676426157d887f55))
+* **docs:** add comment on arm ([9d51768](https://github.com/lukas-sgx/GBA-sdk/commit/9d517683233108ecb1ff952ec4f723b463082e40))
+* **docs:** add some docs to understand code ([80797e2](https://github.com/lukas-sgx/GBA-sdk/commit/80797e23c02a94631fbcb8184c28c3edf8383dfe))
+* force bootstrap to be link at the 1st sector after header ([def77a2](https://github.com/lukas-sgx/GBA-sdk/commit/def77a22168c89dd8664a72090428594f1154005))
+* implement class to handle font asset convertion ([eb13c15](https://github.com/lukas-sgx/GBA-sdk/commit/eb13c158b4982659111e7f78b722b21f01adcbd0))
+* implement dclear & dpixel ([9c74997](https://github.com/lukas-sgx/GBA-sdk/commit/9c74997f89dc37450efdaec0fc916d4f3cd53e3a))
+* implement display init graphical ([eb0da45](https://github.com/lukas-sgx/GBA-sdk/commit/eb0da45378b0e85c01d91540c4e0418c910e60b4))
+* implement glyph dimensions -&gt; proportional font ([1952782](https://github.com/lukas-sgx/GBA-sdk/commit/1952782240eb97aa4254d52c8c97625d92f94dff))
+* implement glyph monospaced & bitmap -&gt; proportional ([098535f](https://github.com/lukas-sgx/GBA-sdk/commit/098535f8fe11bf5550ba81a429ee8f3cfddbb327))
+* implement security loop & call to main function ([20700b1](https://github.com/lukas-sgx/GBA-sdk/commit/20700b1c584c71cbad8dfbb9e05964eabd09728e))
+* implement stack setup ([9b22fd1](https://github.com/lukas-sgx/GBA-sdk/commit/9b22fd198e2cc141ec5b516dde8166b99c980bc2))
+* improve compatibility -&gt; zed ([8691f57](https://github.com/lukas-sgx/GBA-sdk/commit/8691f57aa5ab2ac3a504ef2e45f6859491869318))
+* introduce class to convert all asset font in glyph ([ba31bb2](https://github.com/lukas-sgx/GBA-sdk/commit/ba31bb241ea5d98f7e128754e5c9a96162918434))
+* introduce proportional & monospace converter font ([3f02781](https://github.com/lukas-sgx/GBA-sdk/commit/3f0278102ed8c7c6a5e1a41a65815d719bc53a97))
+* optimize dclear render & add security check on pixel draw ([648a1aa](https://github.com/lukas-sgx/GBA-sdk/commit/648a1aa4c030937ecf79a3087a28b798ee3913e8))
+* remove extern use -&gt; prototype file ([d3b28fa](https://github.com/lukas-sgx/GBA-sdk/commit/d3b28fa3d253d2a8b04c6cc48b8c0a2840db620c))
+* set actual version of SDK ([15a092b](https://github.com/lukas-sgx/GBA-sdk/commit/15a092bb5026e50853f8230ea079bb500e4b15ee))
+* set disable interrupt & force arm handle ([76118b4](https://github.com/lukas-sgx/GBA-sdk/commit/76118b433411a3fc575d03dfffe9d272ea7795a7))
+* setup multiple colors ([0554d0e](https://github.com/lukas-sgx/GBA-sdk/commit/0554d0e97737d589b7372d5c91945a895eae7058))
+* switch Makefile -&gt; cmake ([f6d19d2](https://github.com/lukas-sgx/GBA-sdk/commit/f6d19d24347273adba2615d02e9d38046f34e47a))
+* switch python call build -&gt; cmake ([98e9b26](https://github.com/lukas-sgx/GBA-sdk/commit/98e9b26ec6f0886ccc24311d6f741c792b4ce359))
+* use global glyph ([f88c4d8](https://github.com/lukas-sgx/GBA-sdk/commit/f88c4d856423f99af4cd46bef3064e0b97f3e530))
+
+
+### Bug Fixes
+
+* add essential package to run cmake ([84f3726](https://github.com/lukas-sgx/GBA-sdk/commit/84f3726f7d574076f8415bd9e94e771d3dfb2e9b))
+* change project name ([b876eda](https://github.com/lukas-sgx/GBA-sdk/commit/b876eda8add27b3e8001cae1ceff9c593e35015b))
+* **ci:** introduce auto update body on PR ([9afc1c9](https://github.com/lukas-sgx/GBA-sdk/commit/9afc1c98322bd7f27ca27baad053b1315a2b064d))
+* delete space around COMMIT_LIST var ([904d870](https://github.com/lukas-sgx/GBA-sdk/commit/904d8703372c132bc9fea1420db928bd541dff7e))
+* **docs:** set example ROM ([9a1c22f](https://github.com/lukas-sgx/GBA-sdk/commit/9a1c22fb996ecbf3802a712abd97951e076e0425))
+* set linker in ROM example build ([9423e6e](https://github.com/lukas-sgx/GBA-sdk/commit/9423e6e3b374d2adf49d64d92c16666d80fa2433))
+* set real name -&gt; gamepack ([54cc2db](https://github.com/lukas-sgx/GBA-sdk/commit/54cc2dbd017a62dc5cfe94f307d6515e5a6d2551))
+* set to the last release version ([41e1c0b](https://github.com/lukas-sgx/GBA-sdk/commit/41e1c0ba7bb6a3a67edbbb6d2243ee5b37e78249))
+* set version -&gt; v1.0.0-alpha ([cef7e36](https://github.com/lukas-sgx/GBA-sdk/commit/cef7e365311cc715c9403b4fede88f7ae981970a))
+* switch to the last asset ([9334ecd](https://github.com/lukas-sgx/GBA-sdk/commit/9334ecd61a7535d86db07542002da5e52a66f697))
+* **tests:** resolve build tests ([4f85a48](https://github.com/lukas-sgx/GBA-sdk/commit/4f85a48d1b907d282930c50942c6ac4891b28b0a))
+* **tests:** set source file arg at the wrong point ([caaf951](https://github.com/lukas-sgx/GBA-sdk/commit/caaf951710369470fe0f5a3f178af16fcae29ebd))
+* **tests:** update build to include main ([372d797](https://github.com/lukas-sgx/GBA-sdk/commit/372d7973074829b034f0fb90618e9032b556a31f))
+* **tests:** update command due to change on cmake ([2ddeb61](https://github.com/lukas-sgx/GBA-sdk/commit/2ddeb6151cb43aac92d6438ab544ef6fec149ba7))
+* **tests:** update expected results & ROM name ([f6377ad](https://github.com/lukas-sgx/GBA-sdk/commit/f6377adb15fba7eade930219847353c17061d087))
+* **tests:** update GBA ROM tests name ([2263dac](https://github.com/lukas-sgx/GBA-sdk/commit/2263dac759a8a273b8093c00b4cbe9e73793298a))
+* **tests:** update path of GBA ([7d9fac1](https://github.com/lukas-sgx/GBA-sdk/commit/7d9fac129087bd45fb02230bcb699d5b80871188))
+* update click.File -&gt; BinaryIO ([e31b967](https://github.com/lukas-sgx/GBA-sdk/commit/e31b96768ff86c1088c80f64f01b3a244c817eb7))
+* update element to define end of glyph monospaced ([32b2442](https://github.com/lukas-sgx/GBA-sdk/commit/32b24422376a88916d7fa031a9562209dd0aec2a))
+
 ## [1.0.0-alpha](https://github.com/lukas-sgx/GBA-sdk/compare/v0.1.0-alpha...v1.0.0-alpha) (2026-06-10)
 
 
