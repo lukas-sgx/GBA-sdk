@@ -5,8 +5,10 @@ RUN apk update && apk add \
     newlib-arm-none-eabi \
     python3 \
     py3-pip \
+    cmake \
     make \
-    bash
+    bash \
+    build-base
 
 RUN python3 -m venv /venv
 

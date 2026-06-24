@@ -6,13 +6,15 @@ build-backend = "setuptools.build_meta"
 name = "cartridge"
 description = "GBA SDK — build tool for Game Boy Advance"
 
-dynamic = ["version"]
+version = "1.0.0-alpha.2"
 dependencies = [
-    "click"
+    "click",
+    "Pillow"
 ]
 
 authors = [
   {name = "Lukas Soigneux", email = "lukas.soigneux@epitech.eu"},
+  {name = "Alessandro Paris"},
 ]
 
 readme = "README.md"

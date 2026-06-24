@@ -18,5 +18,14 @@ __pycache__
 
 result/
 
+*.o
+
 # for non NixOs user
 .venv
+
+# Cmake
+*.cmake
+CMakeFiles
+CMakeCache.txt
+Makefile
+compile_commands.json

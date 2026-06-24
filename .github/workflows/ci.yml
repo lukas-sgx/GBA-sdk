@@ -49,7 +49,9 @@ jobs:
         pip install -e "."
 
     - name: Tests
-      run: ./tests/tester.sh
+      run: |
+        source /venv/bin/activate
+        ./tests/tester.sh
       timeout-minutes: 2
 
     # - name: Test with pytest
@@ -78,13 +80,24 @@ jobs:
             echo "" >> $GITHUB_ENV
             echo "EOF" >> $GITHUB_ENV
   
-        - name: Create PR dev -> main
+        - name: Create or Update PR dev -> main
           run: |
+            BACKLINE=$'\n'
+            COMMITS_LIST="### List of changements:${BACKLINE}"
+            COMMITS_LIST+="$(git log origin/main..HEAD --oneline --pretty=format:"- %s (%h)")"
+
             gh pr create \
-              --title "merge: ${{ github.ref_name }} -> main" \
-              --body "$COMMITS_LIST" \
-              --base main \
-              --head dev || echo "PR already exists or could not be created"
+            --title "merge: ${{ github.ref_name }} -> main" \
+            --body "$COMMITS_LIST" \
+            --base main \
+            --head dev || {
+                PR_NUMBER=$(gh pr list --head dev --base main --json "number" -q '.[0].number')
+        
+                if [ -n "$PR_NUMBER" ]; then
+                    gh pr edit "$PR_NUMBER" --body "$COMMITS_LIST"
+                else
+                    exit 1
+                fi
+            }
           env:
             GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-

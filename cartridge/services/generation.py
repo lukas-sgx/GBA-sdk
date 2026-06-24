@@ -1,5 +1,6 @@
 import click
 import struct
+from typing import BinaryIO
 
 ROM_ENTRY_POINT: int = 0xEA00002E
 
@@ -28,7 +29,7 @@ NINTENDO_LOGO = bytes([
 
 
 class Generation:
-    def __init__(self, bin_file: str, output: click.File, name: str, game_code: str) -> None:
+    def __init__(self, bin_file: str, output: BinaryIO, name: str, game_code: str) -> None:
         self.bin_file = bin_file
         self.output = output
         self.name = name
@@ -68,7 +69,11 @@ class Generation:
         return header
 
     def write(self):
-        click.echo(f"[GEN] {self.bin_file} -> {self.output.name}")
+        click.echo(
+            click.style("[GEN] ", fg="blue", bold=True) +
+            click.style(f"{self.bin_file} " , bold=True) +
+            click.style(f"-> {self.output.name}", fg="cyan")
+        )
 
         with open(f"{self.bin_file}", "rb") as bin_content:
             header = self.header_fill(game_title=self.name, game_code=self.game_code)
@@ -77,4 +82,4 @@ class Generation:
             self.output.write(header + rom_data)
 
         
-        click.echo("[OK]  GBA succefully build")
+        click.echo(click.style("[OK]  GBA succefully build", fg="green", bold=True))

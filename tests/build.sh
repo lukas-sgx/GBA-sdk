@@ -2,7 +2,7 @@
 
 set -e
 
-cartridge build -s build/example/bootstrap.S -o mini.gba
-cartridge hdr dump mini.gba > tests/result/dump-build
+cartridge build -s build/example/
+cartridge hdr dump bin/ExampleGBA.gba > tests/result/dump-build
 
-diff tests/result/dump-build tests/expected/build
+diff tests/result/dump-build tests/expected/dump

@@ -8,6 +8,7 @@
     pkgs.vulkan-loader
     pkgs.wayland
     pkgs.gcc-arm-embedded-13
+    pkgs.cmake
   ];
   
   languages.python = {
