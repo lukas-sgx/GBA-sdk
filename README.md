@@ -115,6 +115,7 @@ bin/ExampleGBA.gba:
 
 - [x] Automated header checker `.gba` ROM
 - [x] Automated compilation to `.gba` ROM
+- [x] Font asset pipeline (PNG to C file converter)
 - [ ] Core GBA bindings (Video, Audio, Inputs)
 - [ ] Asset pipeline (PNG to GBA sprite palette converter)
 
