@@ -14,5 +14,6 @@ SECTIONS {
     .text : {
         KEEP(*(.text._bootstrap))
 		*(.text*)
+        *(.rodata*)
     } > game_pack
 }
