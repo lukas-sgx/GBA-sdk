@@ -3,9 +3,6 @@
 #include <stdint.h>
 #include "font.h"
 
-const int WIDTH = 8;
-const int HEIGHT = 12;
-
 void init_font(gba_font_t *font, uint8_t type) {
 	static const uint8_t font_bitmap[] = {
 		0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, // 32: ' '
@@ -106,6 +103,9 @@ void init_font(gba_font_t *font, uint8_t type) {
 		0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, // 127: ''
 	};
 
+	glyph_t global = { .width = 8, .height = 12 };
+
 	font->type = type;
 	font->bitmap = font_bitmap;
+	font->global = &global;
 }

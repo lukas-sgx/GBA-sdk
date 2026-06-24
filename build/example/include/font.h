@@ -12,6 +12,7 @@ typedef struct glyph_s {
 typedef struct gba_font_s {
     uint8_t type;
     const glyph_t glyphs[94];
+    const glyph_t *global;
     const uint8_t *bitmap;
 } gba_font_t;
 
