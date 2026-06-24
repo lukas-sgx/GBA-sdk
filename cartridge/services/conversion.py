@@ -39,10 +39,21 @@ class Conversion:
             content += ",\n"
         content += "\t};\n\n"
 
+        content += "\tstatic const glyph_t glyphs_proportional[] = {\n"
+        for ascii in range(32, 128):
+            pixels_bytes = self.get_pixels_bitmap_glyph(ascii)
+            proporitonal_glyph = self.get_proportional_glyph(pixels_bytes)
+            content += "\t\t{"
+            content += f".height = {len(proporitonal_glyph)}, "
+            content += f".width = {self.get_max_width_proportional(proporitonal_glyph)}, "
+            content += "},\n"
+        content += "\t};\n\n"
+
         content += "\tfont->type = type;\n"
         content += "\tfont->monospaced.bitmap = font_bitmap_monospaced;\n"
         content += "\tfont->monospaced.glyphs = glyphs_monospaced;\n"
         content += "\tfont->proportional.bitmap = font_bitmap_proportional;\n"
+        content += "\tfont->proportional.glyphs = glyphs_proportional;\n"
     
         content += "}\n"
 
@@ -74,6 +85,29 @@ class Conversion:
             print(format("~" * 28) + "\n")
 
         return glyph_list
+
+    def get_max_width_proportional(self, glyph_list: list[str]) -> int:
+        min_x = None
+        max_x = None
+        max_width = 0
+
+        for glyph in glyph_list:
+            bytes_glyph = bytes.fromhex(glyph[2:])
+            row = "".join(f"{b:08b}" for b in bytes_glyph)
+            start_idx = row.find("1")
+            end_idx = row.rfind("1")
+
+            if start_idx != -1:
+                if min_x is None or start_idx < min_x:
+                    min_x = start_idx
+                if max_x is None or end_idx > max_x:
+                    max_x = end_idx + 1
+
+        if min_x is None or max_x is None:
+            return 8
+        else:    
+            max_width = max_x - min_x
+        return max_width
 
     def get_proportional_glyph(self, pixel_bytes: bytes) -> list[str]:
         glyph_list: list[str] = self.get_glyph_list(pixel_bytes)
