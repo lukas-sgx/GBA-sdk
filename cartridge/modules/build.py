@@ -7,7 +7,7 @@ from cartridge.services.generation import Generation
 def listBin() -> list[str]:
     return glob.glob("bin/*.bin")
 
-@click.command(help="craft cartridge ROM (GBA)")
+@click.command(help="Craft cartridge ROM (GBA)")
 @click.option("-s", "--source", required=True, type=click.Path(exists=True), help="set CMake dir")
 def build(source: str) -> None:
     os.makedirs("bin", exist_ok=True)
