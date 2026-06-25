@@ -1,5 +1,21 @@
 # Changelog
 
+## [1.1.0-alpha.2](https://github.com/lukas-sgx/GBA-sdk/compare/v1.0.0-alpha.2...v1.1.0-alpha.2) (2026-06-25)
+
+
+### New APIs / Features
+
+* add badge -&gt; ASM & C & CMake ([4c257fa](https://github.com/lukas-sgx/GBA-sdk/commit/4c257fa2b14acd6e19386cde460cb703a7082d66))
+* add command example on dump header ROM ([091249e](https://github.com/lukas-sgx/GBA-sdk/commit/091249e3b32854ed938aa4834498059e6e0ddfe2))
+* add element -&gt; roadmap ([fc8c2ef](https://github.com/lukas-sgx/GBA-sdk/commit/fc8c2ef34c69eb2bbc4ae08d6f08e2b33aeea1ff))
+* setup proto drawing API ([e03b930](https://github.com/lukas-sgx/GBA-sdk/commit/e03b9304df1ced168e2babc7c889c6ff83aaa572))
+
+
+### Bug Fixes
+
+* update filename cartridge -&gt; cartridge-sdk ([01336b0](https://github.com/lukas-sgx/GBA-sdk/commit/01336b03a0cde6c814e98c2164d591d4aef35189))
+* update package name: cartridge -&gt; cartridge-sdk ([d477392](https://github.com/lukas-sgx/GBA-sdk/commit/d4773922b3bffdd57d7b004c9c2557fdaeefc77d))
+
 ## [1.0.0-alpha.2](https://github.com/lukas-sgx/GBA-sdk/compare/v1.0.0-alpha...v1.0.0-alpha.2) (2026-06-24)
 
 
