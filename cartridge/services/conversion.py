@@ -11,7 +11,7 @@ class Conversion:
         content += "#include <stdint.h>\n"
         content += '#include "font.h"\n\n'
 
-        content += "void init_font(gba_font_t *font, uint8_t type) {\n"
+        content += "void init_font(gba_font_t *font, enum font_type type) {\n"
         content += "\tstatic const uint8_t font_bitmap_monospaced[] = {\n"
 
         for ascii in range(32, 128):
