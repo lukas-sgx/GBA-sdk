@@ -8,10 +8,10 @@ set(RUNTIME_OUTPUT_DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}/../../bin")
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
 set(SOURCES
+    src/bootstrap.S
     src/main.c
     src/driver/graphical.c
-    src/bootstrap.S
-    src/font.c
+    src/autogenerate/font.c
  )
 
 add_executable(${PROJECT_NAME} ${SOURCES})
