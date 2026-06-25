@@ -3,7 +3,7 @@ requires = ["setuptools"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "cartridge"
+name = "cartridge-sdk"
 description = "GBA SDK — build tool for Game Boy Advance"
 
 version = "1.0.0-alpha.2"
