@@ -26,4 +26,4 @@ keywords = ["GBA", "Game Boy", "GameBoy Advance"]
 include = ["cartridge*"]
 
 [project.scripts]
-cartridge = "cartridge.cli:main"
+cartridge-sdk = "cartridge.cli:main"
