@@ -81,6 +81,7 @@ You need Python 3.x installed on your system
 
 Here is a quick example of how to dump header of ROM:
 ```sh
+$ cartridge-sdk hdr dump bin/ExampleGBA.gba
 bin/ExampleGBA.gba:
 |-- entry
 |   |-- valid: True
