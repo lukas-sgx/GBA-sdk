@@ -1,5 +1,10 @@
 # Changelog
 
+## [1.0.0-beta.3](https://github.com/lukas-sgx/GBA-sdk/compare/v1.0.0-beta.2...v1.0.0-beta.3) (2026-06-26)
+
+
+* release 1.0.0-beta.3 ([9dc8bf0](https://github.com/lukas-sgx/GBA-sdk/commit/9dc8bf04293bb75ebce773b06b88b71af74f0d85))
+
 ## [1.0.0-beta.2](https://github.com/lukas-sgx/GBA-sdk/compare/v1.0.0-beta.1...v1.0.0-beta.2) (2026-06-25)
 
 
