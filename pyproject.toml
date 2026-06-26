@@ -9,7 +9,7 @@ description = "GBA SDK — build tool for Game Boy Advance"
 version = "1.0.0-rc.1"
 dependencies = [
     "click",
-    "Pillow"
+    "Pillow",
 ]
 
 authors = [
