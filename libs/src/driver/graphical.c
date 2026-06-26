@@ -14,13 +14,13 @@ void dinit(void)
 
 void dpixel(int16_t x, int16_t y, uint16_t color)
 {
-    if (x * y < 240 * 160)
+    if (x * y < 240 * 160 && x * y >= 0)
         return;
     (VRAM_ADDR)[y * 240 + x] = color;
 }
 
 void dclear(uint16_t color)
 {
-    for (int32_t i = 0; i <= 240 * 160; i++)
+    for (int32_t i = 0; i < 240 * 160; i++)
         (VRAM_ADDR)[i] = color;
 }
