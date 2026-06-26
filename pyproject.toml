@@ -19,7 +19,7 @@ authors = [
 readme = "README.md"
 license = "MIT"
 license-files = ["LICENSE"]
-keywords = ["GBA", "Game Boy", "GameBoy Advance"]
+keywords = ["GBA", "Game Boy", "GameBoy Advance", "Cartridge"]
 
 [tool.setuptools.packages.find]
 include = ["cartridge*"]
