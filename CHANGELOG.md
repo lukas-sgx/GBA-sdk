@@ -1,5 +1,20 @@
 # Changelog
 
+## [1.0.1](https://github.com/lukas-sgx/GBA-sdk/compare/v1.0.0...v1.0.1) (2026-06-26)
+
+
+* release 1.0.1 ([cbc3576](https://github.com/lukas-sgx/GBA-sdk/commit/cbc3576d1f8b46e34f59cf9513ff1769dc9b9dd8))
+
+
+### New APIs / Features
+
+* add init module functional test ([ae525b6](https://github.com/lukas-sgx/GBA-sdk/commit/ae525b6d117de6cdcbfa9169f36d7c938a63bf49))
+
+
+### Bug Fixes
+
+* correct logical on dpixel & improve optimization on dclear ([cb0e356](https://github.com/lukas-sgx/GBA-sdk/commit/cb0e356ae37cf61c3d18f15352cc40011f96ca61))
+
 ## [1.0.0](https://github.com/lukas-sgx/GBA-sdk/compare/v1.0.0-rc.1...v1.0.0) (2026-06-26)
 
 
