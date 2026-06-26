@@ -1,5 +1,34 @@
 # Changelog
 
+## [1.0.0](https://github.com/lukas-sgx/GBA-sdk/compare/v1.0.0-rc.1...v1.0.0) (2026-06-26)
+
+
+* release 1.0.0 ([8a961a8](https://github.com/lukas-sgx/GBA-sdk/commit/8a961a813a3ded3f3b66811cfa4737956c675db2))
+
+
+### New APIs / Features
+
+* add cartridge keyword ([393c7cf](https://github.com/lukas-sgx/GBA-sdk/commit/393c7cfe70812e86341d277d1eca67834a1cd7e0))
+* add info on init project ([7050f60](https://github.com/lukas-sgx/GBA-sdk/commit/7050f60c3b3e8375ae521193fc7be753aea2454c))
+* add init module ([b3fd93d](https://github.com/lukas-sgx/GBA-sdk/commit/b3fd93d816f1cb85956e1c9a99e1d9a4a9cd4e26))
+* add lib -&gt; drivers ([f7a91ca](https://github.com/lukas-sgx/GBA-sdk/commit/f7a91ca1e014a3a825c85a90ab09662bce251e52))
+* add sandbox ([93e682a](https://github.com/lukas-sgx/GBA-sdk/commit/93e682a54e810057bd08fa832285fb9c3769ad45))
+* add stataic lib ([a3ee7d1](https://github.com/lukas-sgx/GBA-sdk/commit/a3ee7d1284cfba72205c131f958db40d5370c376))
+* **ci:** add build project job ([a19e13a](https://github.com/lukas-sgx/GBA-sdk/commit/a19e13ab45553bbaebb7ebcff07c43d711c91c27))
+* **ci:** improve test diff commit before open PR ([b2e829d](https://github.com/lukas-sgx/GBA-sdk/commit/b2e829dbbf3b339125a3489f8f791d898d1d4055))
+* **docs:** add graphical doc ([a433e01](https://github.com/lukas-sgx/GBA-sdk/commit/a433e015e10d037940dc887f560e23884b0d6885))
+* set memory map & function definition ([18b7637](https://github.com/lukas-sgx/GBA-sdk/commit/18b7637743b743b04bdf0d7d6ec1be853fb22a07))
+
+
+### Bug Fixes
+
+* **ci:** update build arg ([ea80565](https://github.com/lukas-sgx/GBA-sdk/commit/ea80565057d7c80c7cfc20f438ba574f09e50c89))
+* improve security check ([0ab06fc](https://github.com/lukas-sgx/GBA-sdk/commit/0ab06fc4e1d51a1d37c945b0dc26d520e8d35e05))
+* set actual version ([8255980](https://github.com/lukas-sgx/GBA-sdk/commit/82559802616b80dc992836d7c12e3974efecc72c))
+* set module text -&gt; memory map ([3922093](https://github.com/lukas-sgx/GBA-sdk/commit/39220937688eda70066d38dfcdd4c3c6e63d6e46))
+* **tests:** update build path ([5fc202b](https://github.com/lukas-sgx/GBA-sdk/commit/5fc202b76d19a70bdc14e2a3830069dc8e024750))
+* **tests:** update outpath path convertor font ([51dacaf](https://github.com/lukas-sgx/GBA-sdk/commit/51dacafe63f8b0b0754cf9a23c67e97ee242c949))
+
 ## [1.0.0-rc.1](https://github.com/lukas-sgx/GBA-sdk/compare/v1.0.0-beta.3...v1.0.0-rc.1) (2026-06-26)
 
 
