@@ -1,6 +1,6 @@
 <div align="center">
   <a href="https://github.com/lukas-sgx/">
-    <img src="assets/gba-logo.png" alt="Logo" height="180" style="border-radius: 10px">
+    <img src="https://github.com/lukas-sgx/GBA-sdk/blob/main/assets/gba-logo.png?raw=true" alt="Logo" height="180" style="border-radius: 10px">
   </a>
 
   <h3 align="center">GameBoy Advance - SDK</h3>
@@ -65,18 +65,21 @@ You need Python 3.x installed on your system
 
 ### Installation
 
+#### Development mode (clone the repo, with local changes)
 1. Clone the repo
-
 ```sh
-   git clone https://github.com/lukas-sgx/GBA-sdk.git
+git clone https://github.com/lukas-sgx/GBA-sdk.git
+cd GBA-sdk
 ```
-
 2. Install the SDK in development mode
-
 ```sh
-   pip install -e .
+pip install -e .
 ```
 
+#### Release mode (stable version from PyPI)
+```sh
+pip install cartridge-sdk
+```
 ## Usage
 
 Here is a quick example of how to dump header of ROM:
