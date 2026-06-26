@@ -2,7 +2,7 @@ import click
 from cartridge.modules.hdr.dump import dump
 from cartridge.modules.hdr.gen import gen
 
-@click.group(help="Cartridge header interface")
+@click.group(help="Manage the cartridge header")
 def hdr():
     pass
 
