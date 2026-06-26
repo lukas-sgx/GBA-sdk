@@ -9,7 +9,7 @@ description = "GBA SDK — build tool for Game Boy Advance"
 version = "1.0.0-rc.1"
 dependencies = [
     "click",
-    "Pillow"
+    "Pillow",
 ]
 
 authors = [
@@ -19,7 +19,7 @@ authors = [
 readme = "README.md"
 license = "MIT"
 license-files = ["LICENSE"]
-keywords = ["GBA", "Game Boy", "GameBoy Advance"]
+keywords = ["GBA", "Game Boy", "GameBoy Advance", "Cartridge"]
 
 [tool.setuptools.packages.find]
 include = ["cartridge*"]
