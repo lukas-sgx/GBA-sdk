@@ -10,6 +10,7 @@ reference for the low-level Mode 3 graphical library included in `cartridge-sdk`
 The library directly manipulates the GameBoy Advance display architecture by 
 targeting Video Mode 3 (a single 16-bit high-color bitmap frame buffer).
 
+```text
 * Memory Geometry : 240 columns x 160 rows (38,400 pixels total)
 * Color Depth     : 15-bit color encapsulated inside a 16-bit word (BGR555)
 * VRAM Boundary   : Starts at 0x06000000 and ends at 0x06012BFF
@@ -22,6 +23,7 @@ targeting Video Mode 3 (a single 16-bit high-color bitmap frame buffer).
     |                                                            |
     |                                                            |
   [0,159]-----------------------------------------------------[239,159]
+```
 
 --------------------------------------------------------------------------------
  2. SOURCE CODE REFERENCE (`graphical.c`)
