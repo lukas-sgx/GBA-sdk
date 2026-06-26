@@ -1,5 +1,20 @@
 # Changelog
 
+## [1.0.0-rc.1](https://github.com/lukas-sgx/GBA-sdk/compare/v1.0.0-beta.3...v1.0.0-rc.1) (2026-06-26)
+
+
+* release 1.0.0-rc.1 ([dfd30cf](https://github.com/lukas-sgx/GBA-sdk/commit/dfd30cf5c47865576fb28567a9d60fa893d3814c))
+
+
+### New APIs / Features
+
+* **tests:** add `conv` command functional tests ([34ad85a](https://github.com/lukas-sgx/GBA-sdk/commit/34ad85af37f6deb4d29d3031da6615dcff121663))
+
+
+### Bug Fixes
+
+* update install part -&gt; release mode ([5fe466c](https://github.com/lukas-sgx/GBA-sdk/commit/5fe466cc6b754f02eecce522a0798a2432658189))
+
 ## [1.0.0-beta.3](https://github.com/lukas-sgx/GBA-sdk/compare/v1.0.0-beta.2...v1.0.0-beta.3) (2026-06-26)
 
 
