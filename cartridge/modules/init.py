@@ -38,5 +38,5 @@ def init():
                     extracted_count += 1
         click.echo(
             click.style("Finished", fg="green", bold=True) +
-            click.style(f"    {extracted_count} dir(s) extracted\n")
+            click.style(f"    {extracted_count} file(s) extracted\n")
         )
