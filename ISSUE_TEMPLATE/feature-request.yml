@@ -1,0 +1,69 @@
+name: Feature request
+description: Propose a new feature or capability for the SDK
+title: "[FEATURE] "
+labels: ["enhancement"]
+body:
+  - type: textarea
+    id: summary
+    attributes:
+      label: Summary
+      description: One or two sentences describing what this issue delivers
+    validations:
+      required: true
+
+  - type: dropdown
+    id: area
+    attributes:
+      label: Area
+      options:
+        - Video
+        - Audio
+        - Input
+        - Asset Pipeline
+        - Core (memory map / registers)
+        - Build / Tooling
+        - Documentation
+    validations:
+      required: true
+
+  - type: textarea
+    id: background
+    attributes:
+      label: Background
+      description: Why is this needed? Roadmap item, related issue, dependency?
+
+  - type: textarea
+    id: scope
+    attributes:
+      label: Scope
+      placeholder: |
+        In scope:
+        - 
+
+        Out of scope:
+        - 
+
+  - type: textarea
+    id: tasks
+    attributes:
+      label: Tasks
+      value: |
+        - [ ] 
+        - [ ] 
+    validations:
+      required: true
+
+  - type: textarea
+    id: acceptance
+    attributes:
+      label: Acceptance Criteria
+      value: |
+        - [ ] Builds cleanly with no warnings on the GBA toolchain
+        - [ ] Verified on emulator (mGBA) with a concrete test case
+        - [ ] Documented
+
+  - type: input
+    id: dependencies
+    attributes:
+      label: Dependencies (blocked by / blocks)
+      placeholder: "Blocked by #X, Blocks #Y"
