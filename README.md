@@ -5,10 +5,13 @@
 
   <h3 align="center">GameBoy Advance - SDK</h3>
 
+  [![PyPI version](https://img.shields.io/pypi/v/cartridge-sdk?style=for-the-badge)](https://pypi.org/project/cartridge-sdk/)
+  [![Build Status](https://img.shields.io/github/actions/workflow/status/lukas-sgx/GBA-sdk/ci.yml?style=for-the-badge)](https://github.com/lukas-sgx/GBA-sdk/actions)
+
   <p align="center">
     A Software Development Kit for developers who want to build GameBoy Advance games.
     <br />
-    <a href="https://github.com/lukas-sgx/GBA-sdk"><strong>Explore the docs »</strong></a>
+    <a href="https://github.com/lukas-sgx/GBA-sdk/tree/main/docs"><strong>Explore the docs »</strong></a>
     <br />
     <br />
     <a href="https://github.com/lukas-sgx/GBA-sdk">View Demo</a>
@@ -54,6 +57,7 @@ This SDK aims to simplify GameBoy Advance homebrew development by allowing devel
 [![C][C-shield]][C-url]
 [![Assembly][ASM-shield]][ASM-url]
 [![CMake][CMake-shield]][CMake-url]
+[![Linker Script][LinkerScript-shield]][LinkerScript-url]
 
 ## Getting Started
 
@@ -112,7 +116,7 @@ bin/ExampleGBA.gba:
     `-- our: e3
 ```
 
-*For more advanced examples, please refer to the [Documentation](https://github.com/lukas-sgx/GBA-sdk).*
+*For more advanced examples, please refer to the [Documentation](https://github.com/lukas-sgx/GBA-sdk/tree/main/docs).*
 
 
 ## Roadmap
@@ -123,18 +127,13 @@ bin/ExampleGBA.gba:
 - [ ] Core GBA bindings (Video, Audio, Inputs)
 - [ ] Asset pipeline (PNG to GBA sprite palette converter)
 
-See the [open issues](https://github.com/lukas-sgx/GBA-sdk/issues) for a full list of proposed features (and known issues).
-
+See the [open issues](https://github.com/lukas-sgx/GBA-sdk/issues) for a full list of proposed features (and known issues), and [CHANGELOG.md](./CHANGELOG.md) for release history.
 
 ## Contributing
 
 Contributions are what make the open-source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
 
-1. Fork the Project
-2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the Branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
+See [CONTRIBUTING.md](./CONTRIBUTING.md) for setup instructions, commit conventions, and the PR process.
 
 ### Top contributors:
 
@@ -159,7 +158,9 @@ Lukas Soigneux - lukas.soigneux@epitech.eu
 [Python-url]: https://www.python.org/
 [C-shield]: https://img.shields.io/badge/C-005895?style=for-the-badge&logo=c&logoColor=white
 [C-url]: https://www.c-language.org/
-[ASM-shield]: https://img.shields.io/badge/-Assembly-f2921d?style=for-the-badge&logo=assemblyscript&logoColor=white
+[ASM-shield]: https://img.shields.io/badge/-Assembly-bf7805?style=for-the-badge&logo=arm&logoColor=white
 [ASM-url]: https://developer.arm.com/
 [CMake-shield]: https://img.shields.io/badge/-CMake-064F8C?style=for-the-badge&logo=cmake&logoColor=white
 [CMake-url]: https://cmake.org/
+[LinkerScript-shield]: https://img.shields.io/badge/-Linker%20Script-A42E2B?style=for-the-badge&logo=gnu&logoColor=white
+[LinkerScript-url]: https://sourceware.org/binutils/docs/ld/Scripts.html
