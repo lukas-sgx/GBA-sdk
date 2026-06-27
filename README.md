@@ -57,6 +57,7 @@ This SDK aims to simplify GameBoy Advance homebrew development by allowing devel
 [![C][C-shield]][C-url]
 [![Assembly][ASM-shield]][ASM-url]
 [![CMake][CMake-shield]][CMake-url]
+[![Linker Script][LinkerScript-shield]][LinkerScript-url]
 
 ## Getting Started
 
@@ -161,3 +162,5 @@ Lukas Soigneux - lukas.soigneux@epitech.eu
 [ASM-url]: https://developer.arm.com/
 [CMake-shield]: https://img.shields.io/badge/-CMake-064F8C?style=for-the-badge&logo=cmake&logoColor=white
 [CMake-url]: https://cmake.org/
+[LinkerScript-shield]: https://img.shields.io/badge/-Linker%20Script-A42E2B?style=for-the-badge&logo=gnu&logoColor=white
+[LinkerScript-url]: https://sourceware.org/binutils/docs/ld/Scripts.html
