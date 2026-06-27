@@ -158,7 +158,7 @@ Lukas Soigneux - lukas.soigneux@epitech.eu
 [Python-url]: https://www.python.org/
 [C-shield]: https://img.shields.io/badge/C-005895?style=for-the-badge&logo=c&logoColor=white
 [C-url]: https://www.c-language.org/
-[ASM-shield]: https://img.shields.io/badge/-Assembly-f2921d?style=for-the-badge&logo=arm&logoColor=white
+[ASM-shield]: https://img.shields.io/badge/-Assembly-bf7805?style=for-the-badge&logo=arm&logoColor=white
 [ASM-url]: https://developer.arm.com/
 [CMake-shield]: https://img.shields.io/badge/-CMake-064F8C?style=for-the-badge&logo=cmake&logoColor=white
 [CMake-url]: https://cmake.org/
