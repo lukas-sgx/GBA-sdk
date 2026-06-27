@@ -33,7 +33,7 @@ Be respectful, constructive, and patient — especially with newcomers to GBA ho
 git clone https://github.com/lukas-sgx/GBA-sdk.git
 cd GBA-sdk
 
-# Option A — devenv (recommended, matches CI environment)
+# Option A — devenv (recommended, match environment)
 devenv shell
 
 # Option B — manual
@@ -48,13 +48,19 @@ cartridge hdr dump tests/fixtures/<some_rom>.gba
 
 ## Project Structure
 
-| Path         | Purpose                                              |
-|--------------|-------------------------------------------------------|
-| `cartridge/` | ROM header parsing/validation, cartridge tooling       |
-| `build/`     | Compilation pipeline (Python → ARM binary → `.gba`)    |
-| `assets/`    | Project assets (logo, fixtures, etc.)                  |
-| `docker/`    | Containerized toolchain for reproducible builds        |
-| `tests/`     | Test suite                                             |
+| Path          | Purpose                                                          |
+|---------------|--------------------------------------------------------------------|
+| `cartridge/`  | ROM header parsing/validation, cartridge tooling                  |
+| `libs/`       | Core GBA bindings (drawing primitives, memory map, etc.)<sup>†</sup> |
+| `sandbox/`    | Example/scratch programs for trying out the SDK<sup>†</sup>        |
+| `docs/libs/`  | Reference documentation for `libs/` (memory map, API docs)<sup>†</sup> |
+| `assets/`     | Project assets (logo, fixtures, etc.)                              |
+| `docker/`     | Containerized toolchain for reproducible builds                    |
+| `tests/`      | Test suite                                                         |
+
+<sup>†</sup> *Best-effort description inferred from commit history — confirm/correct if this doesn't match actual intent.*
+
+> **Note:** the build pipeline now runs on **CMake** (migrated from Makefile). Make sure CMake is available in your environment — `devenv shell` handles this automatically.
 
 If you're working on a new subsystem (e.g. Video/Audio/Input bindings, asset pipeline), check the [open issues](https://github.com/lukas-sgx/GBA-sdk/issues) and the roadmap in the README first — most binding work is tracked under an `Area` label (`video`, `audio`, `input`, `asset-pipeline`, `core`).
 
@@ -133,7 +139,7 @@ Both are available from **Issues → New issue** on GitHub.
 
 ## Style Guidelines
 
-- **Python**: follow the conventions already present in `cartridge/` and `build/` — match existing naming and structure rather than introducing a new style in a single PR
+- **Python**: follow the conventions already present in `cartridge/` and `libs/` — match existing naming and structure rather than introducing a new style in a single PR
 - **C bindings**: when interfacing directly with GBA hardware registers, use `volatile` for memory-mapped I/O, and `__attribute__((packed))` / `__attribute__((aligned(n)))` where exact memory layout matters (see existing register definitions for examples)
 - **Assembly**: keep GBA-specific assembly isolated and commented — explain *why*, not just *what*, since ARM/THUMB GBA code is rarely self-explanatory to newcomers
 - Keep PRs focused: one feature or fix per PR. Bundle unrelated changes only if there's no other reasonable way to split them.
