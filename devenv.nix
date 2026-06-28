@@ -25,7 +25,6 @@
     pkgs.libxkbcommon
     pkgs.vulkan-loader
     pkgs.wayland
-    pkgs.libxkbcommon
   ];
 
   enterTest = ''

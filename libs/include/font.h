@@ -4,6 +4,11 @@
     #include <stddef.h>
     #include <stdint.h>
 
+    #define FONT_MAX_HEIGHT 12
+    #define LETTER_SPACING_PROPORTIONAL 3
+    #define LETTER_SPACING_MONOSPACED -1
+    #define BG_NONE -1
+
 enum font_type {
     MONOSPACED,
     PROPORTIONAL
@@ -27,14 +32,14 @@ typedef struct gba_font_s {
     };
 } gba_font_t;
 
-enum {
+enum valign {
     /* Horizontal settings : default in dtext () is DTEXT_LEFT */
     DTEXT_VALIGN_LEFT,
     DTEXT_VALIGN_CENTER,
     DTEXT_VALIGN_RIGHT,
 };
 
-enum {
+enum halign {
     /* Vertical settings : default in dtext () is DTEXT_TOP */
     DTEXT_HALIGN_TOP,
     DTEXT_HALIGN_MIDDLE,
@@ -44,9 +49,9 @@ enum {
 void dtext_opt(
     gba_font_t *font,
     int32_t x, int32_t y,
-    uint16_t fg, uint16_t bg,
-    uint8_t halign,
-    uint8_t valign,
+    uint16_t fg, int16_t bg,
+    enum halign halign,
+    enum valign valign,
     char const *str
 );
 
@@ -55,13 +60,13 @@ void dtext(gba_font_t *font, int32_t x, int32_t y, uint16_t fg, char const *text
 void dprint_opt(
     gba_font_t *font,
     int32_t x, int32_t y,
-    uint16_t fg, uint16_t bg,
+    uint16_t fg, int16_t bg,
     uint8_t valign,
     char const *format,
     ...
 );
 
-void dprint(gba_font_t *font, int x, int y, int fg, char const *format, ...);
+void dprint(gba_font_t *font, int32_t x, int32_t y, int16_t fg, char const *format, ...);
 
 void dtext_size (
     gba_font_t *font,
