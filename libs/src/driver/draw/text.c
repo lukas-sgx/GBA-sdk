@@ -78,8 +78,12 @@ int32_t get_total_width(gba_font_t *font, const char *str)
     for (size_t i = 0; str[i] != '\0'; i++) {
         dimension = char_glyph(font, str[i]);
         total_width += dimension.width;
-        if (str[i + 1] != '\0')
-            total_width += LETTER_SPACING;
+        if (str[i + 1] != '\0') {
+            if (font->type == MONOSPACED)
+                total_width += LETTER_SPACING_MONOSPACED;
+            else
+                total_width += LETTER_SPACING_PROPORTIONAL;
+        }
     }
     return total_width;
 }
@@ -136,7 +140,10 @@ void dtext_opt(gba_font_t *font, int32_t x, int32_t y, uint16_t fg, int16_t bg,
     
     for (size_t i = 0; str[i] != '\0'; i++) {
         dimension = char_glyph(font, str[i]);
-        spacing = (str[i + 1] != '\0') ? LETTER_SPACING : 0;
+        if (font->type == MONOSPACED)
+            spacing = (str[i + 1] != '\0') ? LETTER_SPACING_MONOSPACED : 0;
+        else
+            spacing = (str[i + 1] != '\0') ? LETTER_SPACING_PROPORTIONAL : 0;
         draw_char(char_to_pointer(font, str[i]), dimension, cursor_x, cursor_y, fg, bg, spacing);
         cursor_x += dimension.width + spacing;
     }
