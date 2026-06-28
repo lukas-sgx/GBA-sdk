@@ -1,11 +1,5 @@
+#include "graphical.h"
 #include <stdint.h>
-
-#define DISPCNT_ADDR (*(volatile uint16_t*)0x4000000)
-#define VRAM_ADDR (volatile uint16_t*)0x06000000
-
-
-#define MODE_3 0x0003
-#define BG2_ENABLE 0x0400
 
 void dinit(void)
 {
@@ -26,4 +20,10 @@ void dclear(uint16_t color)
     
     for (int32_t i = 0; i < 240 * 160 / 2; i++)
         (vram32)[i] = color32;
+}
+
+void wait_vblank(void)
+{
+    while (DISPSTAT_ADDR & 1);
+    while (!(DISPSTAT_ADDR & 1));
 }
