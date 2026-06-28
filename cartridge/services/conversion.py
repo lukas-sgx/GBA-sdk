@@ -91,8 +91,7 @@ class Conversion:
     def get_max_width_proportional(self, glyph_list: list[str]) -> int:
         min_x = None
         max_x = None
-        max_width = 0
-
+    
         for glyph in glyph_list:
             bytes_glyph = bytes.fromhex(glyph[2:])
             row = "".join(f"{b:08b}" for b in bytes_glyph)
@@ -100,23 +99,19 @@ class Conversion:
             end_idx = row.rfind("1")
 
             if start_idx != -1:
-                if min_x is None or start_idx < min_x:
-                    min_x = start_idx
-                if max_x is None or end_idx > max_x:
-                    max_x = end_idx + 1
-
+                min_x = start_idx if min_x is None else min(min_x, start_idx)
+                current_max = end_idx + 1
+                max_x = current_max if max_x is None else max(max_x, current_max)
+    
         if min_x is None or max_x is None:
-            return 8
-        else:    
-            max_width = max_x - min_x
-        return max_width
+            return 3
+        
+        return max_x - min_x
 
     def get_proportional_glyph(self, pixel_bytes: bytes) -> list[str]:
         glyph_list: list[str] = self.get_glyph_list(pixel_bytes)
         min_x = None
         max_x = None
-        min_y = None
-        max_y = None
         idx = 0
 
         for glyph in glyph_list:
@@ -125,17 +120,18 @@ class Conversion:
             start_idx = glyph.find("1")
             end_idx = glyph.rfind("1")
             if start_idx != -1:
-                if min_y is None:
-                    min_y = idx
-                max_y = idx + 1
-                if min_x is None or start_idx < min_x:
+                if min_x is None:
                     min_x = start_idx
-                if max_x is None or end_idx > max_x:
-                    max_x = end_idx + 1
+                else:
+                    min_x = min(min_x, start_idx)
+                current_max = end_idx + 1
+                if max_x is None:
+                    max_x = current_max
+                else:
+                    max_x = max(max_x, current_max)
             idx += 1
 
-        if min_y is not None or max_y is not None:
-            glyph_list = glyph_list[min_y:max_y]
+        glyph_list = glyph_list[0:11]
 
         idx = 0
         for glyph in glyph_list:
