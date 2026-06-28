@@ -25,7 +25,7 @@ class Conversion:
 
         content += "\t};\n\n"
 
-        content += "\tconst glyph_t glyphs_monospaced[] = {\n\t\t{"
+        content += "\tstatic const glyph_t glyphs_monospaced[] = {\n\t\t{"
         content += f" .width = {self.width}, .height = {self.height} "
         content += "},\n\t\t{ .width = 0, .height = 0 }\n"
         content += "\t};\n\n"
@@ -50,11 +50,13 @@ class Conversion:
         content += "\t};\n\n"
 
         content += "\tfont->type = type;\n"
-        content += "\tfont->monospaced.bitmap = font_bitmap_monospaced;\n"
-        content += "\tfont->monospaced.glyphs = glyphs_monospaced;\n"
-        content += "\tfont->proportional.bitmap = font_bitmap_proportional;\n"
-        content += "\tfont->proportional.glyphs = glyphs_proportional;\n"
-    
+        content += "\tif (font->type == MONOSPACED) {\n"
+        content += "\t\tfont->monospaced.bitmap = font_bitmap_monospaced;\n"
+        content += "\t\tfont->monospaced.glyphs = glyphs_monospaced;\n"
+        content += "\t} else {\n"
+        content += "\t\tfont->proportional.bitmap = font_bitmap_proportional;\n"
+        content += "\t\tfont->proportional.glyphs = glyphs_proportional;\n"
+        content += "\t}\n"
         content += "}\n"
 
         return content

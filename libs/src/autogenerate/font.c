@@ -103,7 +103,7 @@ void init_font(gba_font_t *font, enum font_type type) {
 		0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, // 127: ''
 	};
 
-	const glyph_t glyphs_monospaced[] = {
+	static const glyph_t glyphs_monospaced[] = {
 		{ .width = 8, .height = 12 },
 		{ .width = 0, .height = 0 }
 	};
@@ -307,8 +307,11 @@ void init_font(gba_font_t *font, enum font_type type) {
 	};
 
 	font->type = type;
-	font->monospaced.bitmap = font_bitmap_monospaced;
-	font->monospaced.glyphs = glyphs_monospaced;
-	font->proportional.bitmap = font_bitmap_proportional;
-	font->proportional.glyphs = glyphs_proportional;
+	if (font->type == MONOSPACED) {
+		font->monospaced.bitmap = font_bitmap_monospaced;
+		font->monospaced.glyphs = glyphs_monospaced;
+	} else {
+		font->proportional.bitmap = font_bitmap_proportional;
+		font->proportional.glyphs = glyphs_proportional;
+	}
 }
