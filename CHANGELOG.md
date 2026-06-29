@@ -1,5 +1,34 @@
 # Changelog
 
+## [1.1.0](https://github.com/lukas-sgx/GBA-sdk/compare/v1.0.1...v1.1.0) (2026-06-29)
+
+
+* release 1.1.0 ([0fe7c0f](https://github.com/lukas-sgx/GBA-sdk/commit/0fe7c0ffcb99b706299373bbcd9a1d29d9eacded))
+
+
+### New APIs / Features
+
+* add bug report into issue template ([ddb97f5](https://github.com/lukas-sgx/GBA-sdk/commit/ddb97f55a7535c9d25a52c711e79b8ed7bdeb8d2))
+* add contributing ([8556d93](https://github.com/lukas-sgx/GBA-sdk/commit/8556d930bf200fcdb4db930710e22ff18b440a99))
+* add feature & hotfix into PR template ([e46c46a](https://github.com/lukas-sgx/GBA-sdk/commit/e46c46a5e0cd9572733f0145b117e2728963f06a))
+* add issue template feature request ([e3feb2a](https://github.com/lukas-sgx/GBA-sdk/commit/e3feb2aef1080e68d597f2ee3a6c1937030ac1e1))
+* add pipx on depedencies ([6f78ac3](https://github.com/lukas-sgx/GBA-sdk/commit/6f78ac3182cff845ae58b96c8a86d790df8399de))
+* **docs:** add linker script badge ([830eef8](https://github.com/lukas-sgx/GBA-sdk/commit/830eef8207ed91caf62ae3f1b0ad5bd3e6f7260b))
+* implement text drawing api ([982006a](https://github.com/lukas-sgx/GBA-sdk/commit/982006af91b3e1ff73232b54c4b5ff9fe57b4e2a))
+* implement vblank & basic "Hello World !" ([f6bd394](https://github.com/lukas-sgx/GBA-sdk/commit/f6bd394449b76b4842c12d0f8605015031996d6d))
+* introduce letter spacing for different mode ([2403ff3](https://github.com/lukas-sgx/GBA-sdk/commit/2403ff394e6e87b7e000016e126f1f40ca0434a5))
+* set proportional by default ([aed6148](https://github.com/lukas-sgx/GBA-sdk/commit/aed61480fa4bea36fdd3c138f35d984f9b4b7ff9))
+* update badge & link ([1c654c0](https://github.com/lukas-sgx/GBA-sdk/commit/1c654c047c6ea663a4e9aeda0736cf4ce5c04e88))
+
+
+### Bug Fixes
+
+* **docs:** update url of link templates issues ([6f2fe28](https://github.com/lukas-sgx/GBA-sdk/commit/6f2fe28ccb353dd7cfda19525bf893350ffced0f))
+* resolve bug on convertor ([3686c12](https://github.com/lukas-sgx/GBA-sdk/commit/3686c12b6a6e7b2dd8b8a2d0ab38e97e0f6f6942))
+* resolve errors convert on proportional ([5710a89](https://github.com/lukas-sgx/GBA-sdk/commit/5710a8958f0e0f1dd2e97f767b867fce0d54ce2e))
+* update devenv ([b63a5dd](https://github.com/lukas-sgx/GBA-sdk/commit/b63a5ddc828bac3eecb571de2d3f8b22a974714b))
+* update project structure ([d6ae4b4](https://github.com/lukas-sgx/GBA-sdk/commit/d6ae4b46d5b5cedc9ac7e5c717535b4aad0dd63b))
+
 ## [1.0.1](https://github.com/lukas-sgx/GBA-sdk/compare/v1.0.0...v1.0.1) (2026-06-26)
 
 
