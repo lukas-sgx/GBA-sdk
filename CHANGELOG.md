@@ -1,5 +1,23 @@
 # Changelog
 
+## [1.1.1](https://github.com/lukas-sgx/GBA-sdk/compare/v1.1.0...v1.1.1) (2026-06-29)
+
+
+* release 1.1.1 ([4ed7628](https://github.com/lukas-sgx/GBA-sdk/commit/4ed7628bd535e41115f16bd1574240be7664f40f))
+
+
+### New APIs / Features
+
+* **docs:** improve documentation -&gt; text rendering ([bb872c4](https://github.com/lukas-sgx/GBA-sdk/commit/bb872c44dfc9b0f33940a9e6fb7110395ea793a5))
+* implement dprint ([e8ead4a](https://github.com/lukas-sgx/GBA-sdk/commit/e8ead4af3b06fe0bc02a3002df379a81d0411424))
+* set end if not defined into linker ([4e592ed](https://github.com/lukas-sgx/GBA-sdk/commit/4e592edd9f596258effaa3ad2b4701ca0e2fc8e4))
+
+
+### Bug Fixes
+
+* resolve errors on len into convert font asset ([7d7b2e6](https://github.com/lukas-sgx/GBA-sdk/commit/7d7b2e6f9223bb47ed62ec59cd6fbb7de4a3c3b4))
+* update type of valign halign params ([d49ecb6](https://github.com/lukas-sgx/GBA-sdk/commit/d49ecb6af8d6248bfa2d75ce46d360200e3ecc33))
+
 ## [1.1.0](https://github.com/lukas-sgx/GBA-sdk/compare/v1.0.1...v1.1.0) (2026-06-29)
 
 
