@@ -6,6 +6,7 @@ set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 add_library(${PROJECT_NAME} STATIC 
     src/driver/graphical.c
     src/driver/draw/text.c
+    src/driver/draw/print.c
     src/autogenerate/font.c
 )
 
