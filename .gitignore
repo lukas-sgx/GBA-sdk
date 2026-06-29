@@ -31,3 +31,5 @@ Makefile
 compile_commands.json
 
 *.a
+
+dist
