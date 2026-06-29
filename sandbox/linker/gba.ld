@@ -16,4 +16,6 @@ SECTIONS {
 		*(.text*)
         *(.rodata*)
     } > game_pack
+
+    PROVIDE(end = .); /* define end address if not define */
 }
