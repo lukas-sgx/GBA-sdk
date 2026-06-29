@@ -61,27 +61,13 @@ void dprint_opt(
     gba_font_t *font,
     int32_t x, int32_t y,
     uint16_t fg, int16_t bg,
-    uint8_t valign,
+    enum halign halign,
+    enum valign valign,
     char const *format,
     ...
 );
 
 void dprint(gba_font_t *font, int32_t x, int32_t y, int16_t fg, char const *format, ...);
-
-void dtext_size (
-    gba_font_t *font,
-    int32_t *width,
-    int32_t *height,
-    char const *str
-);
-
-void dprint_size(
-    gba_font_t *font,
-    int32_t *width,
-    int32_t * height,
-    char const *format,
-    ...
-);
 
 void init_font(gba_font_t *font, enum font_type type);
 
