@@ -131,7 +131,7 @@ class Conversion:
                     max_x = max(max_x, current_max)
             idx += 1
 
-        glyph_list = glyph_list[0:11]
+        glyph_list = glyph_list[0:12]
 
         idx = 0
         for glyph in glyph_list:
