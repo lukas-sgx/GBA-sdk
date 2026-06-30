@@ -5,9 +5,8 @@
     #include <stdint.h>
 
     #define FONT_MAX_HEIGHT 12
-    #define LETTER_SPACING_PROPORTIONAL 3
+    #define LETTER_SPACING_PROPORTIONAL 2
     #define LETTER_SPACING_MONOSPACED -1
-    #define BG_NONE -1
 
 enum font_type {
     MONOSPACED,

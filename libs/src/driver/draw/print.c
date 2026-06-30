@@ -6,8 +6,8 @@ void dprint_opt(gba_font_t *font, int32_t x, int32_t y,
     uint16_t fg, int16_t bg, enum halign halign,
     enum valign valign, char const *format, ...)
 {
-    char buffer[64];
-    va_list args;
+    char buffer[64] = {0};
+    va_list args = {0};
 
     va_start(args, format);
     vsnprintf(buffer, sizeof(buffer), format, args);
@@ -19,7 +19,7 @@ void dprint(gba_font_t *font, int32_t x, int32_t y,
     int16_t fg, char const *format, ...)
 {
     char buffer[64];
-    va_list args;
+    va_list args = {0};
 
     va_start(args, format);
     vsnprintf(buffer, sizeof(buffer), format, args);

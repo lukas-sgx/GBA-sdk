@@ -11,11 +11,17 @@ MEMORY {
 }
 /* aggressively keep code binary and force it to be located at the start of the ROM */
 SECTIONS {
+    __rom_start = ORIGIN(game_pack);
     .text : {
+        __code_start = .;
         KEEP(*(.text._bootstrap))
 		*(.text*)
+		__code_end = .;
+		__const_start = .;
         *(.rodata*)
+        __const_end = .;
     } > game_pack
 
     PROVIDE(end = .); /* define end address if not define */
+    __rom_end = .;
 }
