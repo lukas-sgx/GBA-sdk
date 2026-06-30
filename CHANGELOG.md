@@ -1,5 +1,25 @@
 # Changelog
 
+## [1.2.0](https://github.com/lukas-sgx/GBA-sdk/compare/v1.1.1...v1.2.0) (2026-06-30)
+
+
+* release 1.2.0 ([2786b75](https://github.com/lukas-sgx/GBA-sdk/commit/2786b75906b5cf558cfee622f4045497cdf88b84))
+
+
+### New APIs / Features
+
+* get lenght of each part ([0819e71](https://github.com/lukas-sgx/GBA-sdk/commit/0819e710686f196ac630e973640919b7842f9332))
+* setup basic colors ([2e0e8ab](https://github.com/lukas-sgx/GBA-sdk/commit/2e0e8ab357f7a15ac7dbff77557f7bf99c5248ba))
+* setup main function argument ([9bfabdc](https://github.com/lukas-sgx/GBA-sdk/commit/9bfabdc7388cd45ee7b58bf3acb9bd875aa110ac))
+* setup menu -&gt; GBA info ([d157c89](https://github.com/lukas-sgx/GBA-sdk/commit/d157c899ea45206d0903d3676d3064d3a743b34d))
+
+
+### Bug Fixes
+
+* decrease letter spacing -&gt; proportional ([a198631](https://github.com/lukas-sgx/GBA-sdk/commit/a1986310cf13100ffdf515552938975ae644ed48))
+* init all var to null ([029019d](https://github.com/lukas-sgx/GBA-sdk/commit/029019d1ebeb91c9a45498abb9a1ddabadbddad5))
+* resolve errors on alignments ([8665344](https://github.com/lukas-sgx/GBA-sdk/commit/866534475e24319e84e7e5e46cf70c3e5b6e132f))
+
 ## [1.1.1](https://github.com/lukas-sgx/GBA-sdk/compare/v1.1.0...v1.1.1) (2026-06-29)
 
 
