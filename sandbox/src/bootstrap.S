@@ -14,7 +14,7 @@
 _bootstrap:
     bl disable_irq
     bl setup_stack
-    bl main
+    bl setup_main
     b security_running
 
 disable_irq:
@@ -25,6 +25,13 @@ disable_irq:
 
 setup_stack:
     ldr sp, =USER_STACK
+    bx lr
+
+setup_main:
+    mrs r0, cpsr
+    ldr r3, =IME
+    ldr r1, [r3]
+    bl main
     bx lr
 
 security_running:
