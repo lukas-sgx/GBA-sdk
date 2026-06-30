@@ -1,4 +1,5 @@
 #include "font.h"
+#include "color.h"
 #include "graphical.h"
 #include <stddef.h>
 #include <stdint.h>
@@ -62,7 +63,7 @@ void draw_char(const uint8_t *bitmap, glyph_t dimension, int32_t x, int32_t y,
                 bit = (byte >> (dimension.width - 1 - col)) & 1;
             else
                 bit = 0;
-            if (!bit && bg == BG_NONE)
+            if (!bit && bg == C_NONE)
                 continue;
             else
                 dpixel(x + col, y + row, bit ? fg : bg);
@@ -72,7 +73,7 @@ void draw_char(const uint8_t *bitmap, glyph_t dimension, int32_t x, int32_t y,
 
 int32_t get_total_width(gba_font_t *font, const char *str)
 {
-    glyph_t dimension;
+    glyph_t dimension = {0};
     int32_t total_width = 0;
     
     for (size_t i = 0; str[i] != '\0'; i++) {
@@ -97,11 +98,11 @@ int32_t get_valign(enum valign valign, int32_t x, int32_t total_width)
             cursor_x = x - total_width / 2;
             break;
         case DTEXT_VALIGN_RIGHT:
-            cursor_x = x;
+            cursor_x = x + total_width;
             break;
         case DTEXT_VALIGN_LEFT:
         default:
-            cursor_x = x - total_width;
+            cursor_x = x;
             break;
     }
     return cursor_x;
@@ -120,7 +121,7 @@ int32_t get_halign(enum halign halign, int32_t y)
             break;
         case DTEXT_HALIGN_TOP:
         default:
-            cursor_y = y - FONT_MAX_HEIGHT;
+            cursor_y = y;
             break;
     }
     return cursor_y;
@@ -129,7 +130,7 @@ int32_t get_halign(enum halign halign, int32_t y)
 void dtext_opt(gba_font_t *font, int32_t x, int32_t y, uint16_t fg, int16_t bg,
     enum halign halign, enum valign valign, char const *str)
 {
-    glyph_t dimension;
+    glyph_t dimension = {0};
     int32_t cursor_x = 0;
     int32_t cursor_y = 0;
     int32_t spacing = 0;
@@ -151,5 +152,5 @@ void dtext_opt(gba_font_t *font, int32_t x, int32_t y, uint16_t fg, int16_t bg,
 
 void dtext(gba_font_t *font, int32_t x, int32_t y, uint16_t fg, char const *text)
 {
-    dtext_opt(font, x, y, fg, BG_NONE, DTEXT_HALIGN_TOP, DTEXT_VALIGN_LEFT, text);
+    dtext_opt(font, x, y, fg, C_NONE, DTEXT_HALIGN_TOP, DTEXT_VALIGN_LEFT, text);
 }
