@@ -7,7 +7,7 @@ set(CMAKE_OBJCOPY "arm-none-eabi-objcopy")
 set(RUNTIME_OUTPUT_DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}/../bin")
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
-project(ExampleGBA C ASM)
+project(ExampleGBA C)
  
 add_subdirectory(
     "${CMAKE_CURRENT_SOURCE_DIR}/../libs" 
@@ -15,7 +15,6 @@ add_subdirectory(
 )
 
 set(SOURCES
-    src/bootstrap.S
     src/main.c
 )
 

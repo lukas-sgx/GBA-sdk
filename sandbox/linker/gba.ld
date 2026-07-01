@@ -1,7 +1,7 @@
 /* custom linker script in order to generate a GameBoyAdvance binary */
 OUTPUT_FORMAT("elf32-littlearm", "elf32-bigarm", "elf32-littlearm")
 OUTPUT_ARCH(arm)
-ENTRY(_bootstrap)
+ENTRY(kernel_init)
 /* address only the cartridge memory area
 * @notes:
 * - skip the cartridge header
@@ -14,7 +14,7 @@ SECTIONS {
     __rom_start = ORIGIN(game_pack);
     .text : {
         __code_start = .;
-        KEEP(*(.text._bootstrap))
+        *(.text.kernel_init)
 		*(.text*)
 		__code_end = .;
 		__const_start = .;
