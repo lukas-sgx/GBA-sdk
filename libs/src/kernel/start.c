@@ -1,11 +1,11 @@
-#include "graphical.h"
+#include "lcd.h"
 
 extern void main();
 
 __attribute__((section(".text.kernel_init")))
 void kernel_init(void)
 {
-    dinit();
+    gba_lcd_driver_init();
     main();
     while (1);
 }
