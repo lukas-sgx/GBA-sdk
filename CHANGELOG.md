@@ -1,5 +1,18 @@
 # Changelog
 
+## [2.0.0-alpha](https://github.com/lukas-sgx/GBA-sdk/compare/v1.2.0...v2.0.0-alpha) (2026-07-25)
+
+
+* release 2.0.0-alpha ([01551d2](https://github.com/lukas-sgx/GBA-sdk/commit/01551d2ddd9f06fb46b1e5b63b61d106829e027f))
+
+
+### New APIs / Features
+
+* implement declarative call for all drivers ([980b132](https://github.com/lukas-sgx/GBA-sdk/commit/980b132aacd432ca168ae6a160af170431971000))
+* implement lcd driver ([ff3bda9](https://github.com/lukas-sgx/GBA-sdk/commit/ff3bda918f3ff0817551a29d97165ab1b849184d))
+* improve visibility & create function to get IME & CPSR ([9688563](https://github.com/lukas-sgx/GBA-sdk/commit/9688563bbbdfe5ea2a3bca3f2ae7a2a9287e7a74))
+* set kernel in C ([be831df](https://github.com/lukas-sgx/GBA-sdk/commit/be831dfcc0cb2dce844259181cf2c599cc8fca89))
+
 ## [1.2.0](https://github.com/lukas-sgx/GBA-sdk/compare/v1.1.1...v1.2.0) (2026-06-30)
 
 
