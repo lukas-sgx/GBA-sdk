@@ -1,6 +1,6 @@
 #include "font.h"
 #include "color.h"
-#include "graphical.h"
+#include "lcd.h"
 #include <stddef.h>
 #include <stdint.h>
 
@@ -66,7 +66,7 @@ void draw_char(const uint8_t *bitmap, glyph_t dimension, int32_t x, int32_t y,
             if (!bit && bg == C_NONE)
                 continue;
             else
-                dpixel(x + col, y + row, bit ? fg : bg);
+                gba_lcd_vram_dpixel(bit ? fg : bg, x + col, y + row);
         }
     }
 }

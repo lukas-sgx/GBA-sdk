@@ -1,4 +1,4 @@
-#include "graphical.h"
+#include "lcd.h"
 #include "font.h"
 #include "color.h"
 #include <stdint.h>
@@ -32,7 +32,7 @@ uint32_t get_ime(void)
     return *(volatile uint16_t*)0x4000208;
 }
 
-extern void main(void)
+extern void main()
 {
     gba_font_t font = {0};
     uint32_t rom_size = (uint32_t)&__rom_end - (uint32_t)&__rom_start;
@@ -44,8 +44,8 @@ extern void main(void)
 
     init_font(&font, PROPORTIONAL);
     
-    wait_vblank();
-    dclear(0xDE7B);
+    gba_lcd_wait_vblank();
+    gba_lcd_vram_clear(0xDE7B);
     dtext_opt(&font, 240 / 2, 12, 0x7FFF, C_NONE, DTEXT_HALIGN_MIDDLE, DTEXT_VALIGN_CENTER, "Welcolme !");
     dprint(&font, 10, 20, C_BLACK, "ROM: %do", rom_size);
     dprint(&font, 10, 32, C_BLACK, "Code: %do", code_size);
