@@ -4,7 +4,7 @@ project(GbaLib C)
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
 add_library(${PROJECT_NAME} STATIC 
-    src/driver/graphical.c
+    src/driver/lcd.c
     src/display/text.c
     src/display/print.c
     src/autogenerate/font.c

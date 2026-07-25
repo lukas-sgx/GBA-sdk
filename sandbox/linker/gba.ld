@@ -19,6 +19,12 @@ SECTIONS {
 		__code_end = .;
 		__const_start = .;
         *(.rodata*)
+
+        . = ALIGN(4);
+        __wired_drivers = .;
+        KEEP(*(SORT(.wired.drivers.*)))
+        __wired_drivers_end = .;
+
         __const_end = .;
     } > game_pack
 
