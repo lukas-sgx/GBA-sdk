@@ -4,9 +4,6 @@
   env.GREET = "devenv";
 
   packages = [
-    pkgs.libxkbcommon
-    pkgs.vulkan-loader
-    pkgs.wayland
     pkgs.gcc-arm-embedded-13
     pkgs.cmake
   ];
