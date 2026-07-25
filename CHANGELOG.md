@@ -1,5 +1,15 @@
 # Changelog
 
+## [2.0.0-beta](https://github.com/lukas-sgx/GBA-sdk/compare/v2.0.0-alpha...v2.0.0-beta) (2026-07-25)
+
+
+* release 2.0.0-beta ([1e8fe48](https://github.com/lukas-sgx/GBA-sdk/commit/1e8fe4887b439ff159d8fabe01899a692bae2608))
+
+
+### Bug Fixes
+
+* **docs:** update docs -&gt; new driver interface ([6dc1e8a](https://github.com/lukas-sgx/GBA-sdk/commit/6dc1e8a063002a79d72731f5b65ee2b3a5b4362b))
+
 ## [2.0.0-alpha](https://github.com/lukas-sgx/GBA-sdk/compare/v1.2.0...v2.0.0-alpha) (2026-07-25)
 
 
