@@ -18,7 +18,7 @@ void dprint_opt(gba_font_t *font, int32_t x, int32_t y,
 void dprint(gba_font_t *font, int32_t x, int32_t y,
     int16_t fg, char const *format, ...)
 {
-    char buffer[64];
+    char buffer[64] = {0};
     va_list args = {0};
 
     va_start(args, format);
