@@ -32,7 +32,7 @@ uint32_t get_ime(void)
     return *(volatile uint16_t*)0x4000208;
 }
 
-extern void main()
+extern void main(void)
 {
     gba_font_t font = {0};
     uint32_t rom_size = (uint32_t)&__rom_end - (uint32_t)&__rom_start;
