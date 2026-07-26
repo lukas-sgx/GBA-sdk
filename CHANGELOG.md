@@ -1,5 +1,15 @@
 # Changelog
 
+## [2.0.0](https://github.com/lukas-sgx/GBA-sdk/compare/v2.0.0-rc...v2.0.0) (2026-07-26)
+
+
+* release 2.0.0 ([bf142a7](https://github.com/lukas-sgx/GBA-sdk/commit/bf142a7fc741d648fa2f0418e24efb535a1fc6b4))
+
+
+### Bug Fixes
+
+* set null buffer ([dce314b](https://github.com/lukas-sgx/GBA-sdk/commit/dce314b70debfb54f685f754d83dd529aedea4bb))
+
 ## [2.0.0-rc](https://github.com/lukas-sgx/GBA-sdk/compare/v2.0.0-beta...v2.0.0-rc) (2026-07-26)
 
 
