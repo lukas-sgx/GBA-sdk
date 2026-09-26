@@ -124,8 +124,8 @@ bin/ExampleGBA.gba:
 - [x] Automated header checker `.gba` ROM
 - [x] Automated compilation to `.gba` ROM
 - [x] Font asset pipeline (PNG to C file converter)
-- [ ] Core GBA bindings (Video, Audio, Inputs)
-- [ ] Asset pipeline (PNG to GBA sprite palette converter)
+- [x] Core GBA bindings (Video)
+- [x] Asset pipeline (PNG to GBA sprite palette converter)
 
 See the [open issues](https://github.com/lukas-sgx/GBA-sdk/issues) for a full list of proposed features (and known issues), and [CHANGELOG.md](./CHANGELOG.md) for release history.
 
